@@ -1,25 +1,66 @@
-import React from 'react';
-import { Navbar } from 'flowbite-react';
-import { Link, NavLink } from 'react-router-dom';
-import logoEcoGreen from '../assets/images/logoEcoGreen.png';
+import React from "react";
+import { navLinks } from "../utils/constant";
+import { Link, NavLink } from "react-router-dom";
+import logoEcoGreen from "../assets/images/logoEcoGreen.png";
+
 const NavbarComponents = () => {
   return (
-    <Navbar fluid rounded className="max-w-screen-xl mx-auto mt-2">
-      <Navbar.Brand as={Link} href="https://flowbite-react.com">
-        <img src={logoEcoGreen} className="mr-3 h-9 md:h-14" alt="EcoGreen Logo" />
-      </Navbar.Brand>
-      <Navbar.Toggle />
-      <Navbar.Collapse>
-        <NavLink to="/" active>
-          Home
-        </NavLink>
-        <NavLink as={Link} to="/about">
-          About
-        </NavLink>
-        <NavLink to="/calculatin">Calculating</NavLink>
-        <NavLink to="/team">Team</NavLink>
-      </Navbar.Collapse>
-    </Navbar>
+    <nav className="mx-auto max-w-screen-2xl">
+      <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
+        {/* Logos */}
+        <Link
+          className="flex items-center space-x-3 rtl:space-x-reverse"
+          to={"/"}
+        >
+          <img
+            alt="EcoGreen Logo"
+            className="h-10 lg:h-14"
+            src={logoEcoGreen}
+          />
+        </Link>
+
+        {/* Hamburger Menu */}
+        <button
+          className="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 md:hidden"
+          type="button"
+        >
+          <span className="sr-only">Open main menu</span>
+          <svg
+            aria-hidden="true"
+            className="h-5 w-5"
+            fill="none"
+            viewBox="0 0 17 14"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M1 1h15M1 7h15M1 13h15"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+            />
+          </svg>
+        </button>
+
+        {/* Navbar Links */}
+        <div className="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul className="mt-4 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:p-0  lg:gap-14 rtl:space-x-reverse">
+            {navLinks.map((link) => {
+              return (
+                <li key={link.name}>
+                  <NavLink
+                    to={link.path}
+                    className={({ isActive }) => (isActive ? "" : "")}
+                  >
+                    {link.name}
+                  </NavLink>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
 };
 

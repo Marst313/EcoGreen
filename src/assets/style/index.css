@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-h2 {
-  @apply text-xs;
+:root {
+  --primary-green: 103 204 107;
+  --secondary-green: 114 153 117;
+}
+
+body {
+  background-color: #ffffff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+a {
+  @apply font-Phoppins;
 }

@@ -1,7 +1,7 @@
-import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import SharedLayout from './layout/SharedLayout';
-import { Home } from './pages';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import SharedLayout from "./layout/SharedLayout";
+import { About, Calculating, Home, Team } from "./pages";
 
 const App = () => {
   return (
@@ -9,6 +9,9 @@ const App = () => {
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="calculating" element={<Calculating />} />
+          <Route path="team" element={<Team />} />
         </Route>
       </Routes>
     </BrowserRouter>
