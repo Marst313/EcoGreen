@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 import { CardCalculating } from "../components/CardCalculating";
-import Motor from "../assets/images/Motor.png";
-import Mobil from "../assets/images/Mobil.png";
-import Pesawat from "../assets/images/Pesawat.png";
-import Pesawat2 from "../assets/images/Pesawat2.png";
-import Kereta from "../assets/images/Kereta.png";
-import Orang from "../assets/images/Orang.png";
+import { cardList } from "../utils/constant";
+import CalculatingModal from "../components/CalculatingModal";
 
 const Calculating = () => {
   const [currentCard, setCurrentCard] = useState(0);
+  const [openModal, setOpenModal] = useState(false);
 
   return (
     <div className="mx-auto mt-36 flex max-w-screen-xl flex-col gap-5">
@@ -24,18 +21,17 @@ const Calculating = () => {
       </div>
 
       <ul className="flex items-center justify-between">
-        <CardCalculating imgSrc={Motor} title={"ImageMotor"} name={"Motor"} />
-        <CardCalculating
-          imgSrc={Pesawat}
-          title={"ImagePesawat"}
-          name={"Pesawat"}
-        />
-        <CardCalculating imgSrc={Mobil} title={"ImageMobil"} name={"Mobil"} />
-        <CardCalculating
-          imgSrc={Kereta}
-          title={"ImageKereta"}
-          name={"Kereta"}
-        />
+        {cardList.map((item, index) => {
+          return (
+            <CardCalculating
+              currentCard={currentCard}
+              setCurrentCard={setCurrentCard}
+              key={item.name}
+              {...item}
+              index={index}
+            />
+          );
+        })}
       </ul>
 
       {/*   <div className="w-100% mx-10 my-5 h-80 rounded-2xl bg-[#D2FFD5] p-5">
@@ -105,9 +101,17 @@ const Calculating = () => {
         </div>
       </div> */}
 
-      <button className="to-thirdGreend  mx-auto mt-10 w-52 rounded-md bg-gradient-to-t from-primaryGreen p-5 font-bold text-white ">
+      <button
+        className="to-thirdGreend  mx-auto mt-10 w-52 rounded-md bg-gradient-to-t from-primaryGreen p-5 font-bold text-white "
+        type=""
+        onClick={() => setOpenModal(true)}
+      >
         Hitung Sekarang !
       </button>
+
+      {openModal && (
+        <CalculatingModal openModal={openModal} setOpenModal={setOpenModal} />
+      )}
     </div>
   );
 };
