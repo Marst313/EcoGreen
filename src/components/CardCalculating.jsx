@@ -2,15 +2,17 @@ import React from "react";
 
 export const CardCalculating = ({ imgSrc, title, name }) => {
   return (
-    <div className="my-10 ml-10">
-      <div className="mx-10 flex h-52 w-40 items-center justify-center rounded-xl bg-[#BCFADE] p-5">
-        <img src={imgSrc} alt={title} className="w-48" />
-      </div>
-      <div>
-        <div className="mx-10 mt-2 flex h-10 w-40 items-center justify-center rounded-xl bg-[#43A046]">
-          <p className="text-[25px] text-white">{name}</p>
+    <li className="my-10">
+      <button
+        type="button"
+        className="flex h-80 w-64 flex-col items-center justify-between rounded-xl bg-[#BCFADE] "
+      >
+        <img src={imgSrc} alt={title} className="mt-10 w-40" />
+
+        <div className="mx-10 mt-2 flex h-14 w-64 items-center justify-center rounded-xl bg-[#6af56f]">
+          <p className="text-base font-semibold text-black/80">{name}</p>
         </div>
-      </div>
-    </div>
+      </button>
+    </li>
   );
 };

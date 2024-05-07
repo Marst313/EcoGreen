@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { CardCalculating } from "../components/CardCalculating";
 import Motor from "../assets/images/Motor.png";
 import Mobil from "../assets/images/Mobil.png";
@@ -8,39 +8,37 @@ import Kereta from "../assets/images/Kereta.png";
 import Orang from "../assets/images/Orang.png";
 
 const Calculating = () => {
+  const [currentCard, setCurrentCard] = useState(0);
+
   return (
-    <div>
+    <div className="mx-auto mt-36 flex max-w-screen-2xl flex-col gap-5">
       <div className="mt-5 flex justify-center">
         <h1 className="text-[40px] font-extrabold text-[#729975]">
           Calculating Carbon
         </h1>
       </div>
-      <div className="ml-10">
-        <h2 className="text-[25px] text-[#729975] font-bold">Transportation</h2>
+      <div>
+        <h2 className="text-[25px] font-bold text-[#729975]">
+          Kendaraaan Apa Yang Sering Kamu Gunakan ?
+        </h2>
       </div>
-      <div className="grid grid-cols-4 gap-12">
-        <CardCalculating
-          imgSrc={Motor}
-          title={"ImageMotor"}
-          name={"Motor"}
-        />
+
+      <ul className="flex items-center justify-between">
+        <CardCalculating imgSrc={Motor} title={"ImageMotor"} name={"Motor"} />
         <CardCalculating
           imgSrc={Pesawat}
           title={"ImagePesawat"}
           name={"Pesawat"}
         />
-        <CardCalculating
-          imgSrc={Mobil}
-          title={"ImageMobil"}
-          name={"Mobil"}
-        />
+        <CardCalculating imgSrc={Mobil} title={"ImageMobil"} name={"Mobil"} />
         <CardCalculating
           imgSrc={Kereta}
           title={"ImageKereta"}
           name={"Kereta"}
         />
-      </div>
-      <div className="w-100% mx-10 my-5 h-80 rounded-2xl bg-[#D2FFD5] p-5">
+      </ul>
+
+      {/*   <div className="w-100% mx-10 my-5 h-80 rounded-2xl bg-[#D2FFD5] p-5">
         <div>
           <h2 className="text-xl font-bold">Jejak Langkah (Km/hari)</h2>
         </div>
@@ -86,16 +84,18 @@ const Calculating = () => {
           />
         </div>
         <div className="flex justify-center">
-          <div className="flex w-[60rem] justify-between mt-5">
+          <div className="mt-5 flex w-[60rem] justify-between">
             <div>
-              <p className="font-bold text-[90%]">Jumlah Emisi (Co2 Ton/Tahun)</p>
+              <p className="text-[90%] font-bold">
+                Jumlah Emisi (Co2 Ton/Tahun)
+              </p>
               <input
                 type="text"
                 className=" mt-2 w-44 appearance-none rounded-lg text-center outline-none focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
             <div>
-              <p className="font-bold text-[90%]">Total Emisi (Co2/Tahun)</p>
+              <p className="text-[90%] font-bold">Total Emisi (Co2/Tahun)</p>
               <input
                 type="text"
                 className=" mt-2 w-44 appearance-none rounded-lg text-center outline-none focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -103,8 +103,11 @@ const Calculating = () => {
             </div>
           </div>
         </div>
-        
-      </div>
+      </div> */}
+
+      <button className="to-thirdGreend  mx-auto mt-10 w-52 rounded-md bg-gradient-to-t from-primaryGreen p-5 font-bold text-white ">
+        Hitung Sekarang !
+      </button>
     </div>
   );
 };

@@ -6,6 +6,7 @@ export default {
       colors: {
         primaryGreen: "rgb(var(--primary-green) / <alpha-value>)",
         secondaryGreen: "rgb(var(--secondary-green) / <alpha-value>)",
+        thirdGreend: "#75BE77",
       },
       fontFamily: {
         Phoppins: ["Poppins sans", "sans-serif"],

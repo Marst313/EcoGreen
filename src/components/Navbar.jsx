@@ -6,7 +6,7 @@ import logoEcoGreen from "../assets/images/logoEcoGreen.png";
 const NavbarComponents = () => {
   return (
     <nav className="mx-auto max-w-screen-2xl">
-      <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
+      <div className="mx-auto flex max-w-screen-2xl flex-wrap items-center justify-between p-4">
         {/* Logos */}
         <Link
           className="flex items-center space-x-3 rtl:space-x-reverse"
