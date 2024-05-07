@@ -36,16 +36,16 @@ const Map = () => {
   if (!geolocation) {
     return (
       <div>
-        <h1>Oops! Something Went Wrong...</h1>
+        <h1>Oops! Ada Sesuatu Yang Salah....</h1>
       </div>
     );
   }
 
   return (
-    <div>
+    <div className="mx-auto mt-28 max-w-screen-xl">
        <div className="mt-5 flex justify-center">
         <h1 className="text-[40px] font-extrabold text-[#729975]">
-          Map
+          Peta
         </h1>
       </div>
       <div className="my-5 flex justify-center">

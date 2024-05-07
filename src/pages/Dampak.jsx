@@ -9,13 +9,13 @@ const Dampak = () => {
   return (
     <div>
       <div
-        className="h-screen w-auto"
-        style={{
-          backgroundImage: `url(${vectorHero})`,
-          backgroundSize: "cover",
-          height: "100vh",
-          width: "100%",
-        }}
+        className="mx-auto mt-28 max-w-screen-xl"
+        // style={{
+        //   backgroundImage: `url(${vectorHero})`,
+        //   backgroundSize: "cover",
+        //   height: "100vh",
+        //   width: "100%",
+        // }}
       >
         <div className="flex items-center justify-center text-center">
           <h2 className=" my-5 w-[50%] text-[200%] font-bold text-[#729975]">

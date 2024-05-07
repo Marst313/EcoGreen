@@ -5,9 +5,9 @@ import Baam from "../assets/images/Baam.png";
 
 const Team = () => {
   return (
-    <div className="my-5">
+    <div className="mx-auto mt-24 max-w-screen-xl">
       <div className="flex items-center justify-center text-center">
-        <h2 className=" my-5 w-[50%] text-[250%] font-bold">TEAM</h2>
+        <h2 className=" my-5 w-[50%] text-[250%] font-bold">TIM</h2>
       </div>
 
       <div className="mx-10 flex w-auto justify-between">

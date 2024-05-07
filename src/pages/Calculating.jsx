@@ -11,10 +11,10 @@ const Calculating = () => {
   const [currentCard, setCurrentCard] = useState(0);
 
   return (
-    <div className="mx-auto mt-36 flex max-w-screen-2xl flex-col gap-5">
+    <div className="mx-auto mt-36 flex max-w-screen-xl flex-col gap-5">
       <div className="mt-5 flex justify-center">
         <h1 className="text-[40px] font-extrabold text-[#729975]">
-          Calculating Carbon
+          Perhitungan Karbon
         </h1>
       </div>
       <div>
