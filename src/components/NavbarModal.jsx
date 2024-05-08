@@ -14,12 +14,12 @@ const NavbarModal = ({ openModal, setOpenModal }) => {
             {navLinks.map((link) => {
               return (
                 <li key={link.name} className="mt-2">
-                  <NavLink
-                    to={link.path}
+                  <a
+                    href={link.path}
                     className={({ isActive }) => (isActive ? "" : "")}
                   >
                     {link.name}
-                  </NavLink>
+                  </a>
                 </li>
               );
             })}
