@@ -12,7 +12,17 @@ import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 const Home = () => {
   return (
     <>
-      <div className="mx-auto w-auto max-w-screen-xl lg:mt-20 ">
+      <div className="mx-auto w-auto max-w-screen-xl lg:mt-20">
+        <div
+          style={{
+            backgroundImage: `url(${vectorHero})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            height: "69rem",
+          }}
+          className="absolute left-0 top-0   -z-10  h-full w-full"
+        ></div>
+
         <div className="mt-10 w-full items-center justify-between lg:flex">
           <div className="mx-3 flex flex-col gap-5 lg:mx-0 lg:w-1/2">
             <h1 className="text-5xl font-extrabold italic text-[#729975] lg:text-6xl">

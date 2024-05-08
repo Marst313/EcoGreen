@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { navLinks } from "../utils/constant";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import logoEcoGreen from "../assets/images/logoEcoGreen.png";
 import NavbarModal from "./NavbarModal";
 
 const NavbarComponents = () => {
   const [openModal, setOpenModal] = useState(false);
-  
+
   return (
-    <nav className="mx-auto max-w-screen-xl">
+    <nav className="-z-0 mx-auto max-w-screen-xl">
       <div className="mx-auto flex max-w-screen-2xl flex-wrap items-center justify-between p-4">
         {/* Logos */}
         <Link

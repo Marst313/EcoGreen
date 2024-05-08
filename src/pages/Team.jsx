@@ -5,7 +5,7 @@ import Baam from "../assets/images/Baam.png";
 
 const Team = () => {
   return (
-    <div className="mx-auto my-24 max-w-screen-xl" id="team">
+    <div className="mx-auto my-24 mt-[30rem] max-w-screen-xl " id="team">
       <h2 className="my-5 text-center text-5xl font-bold">TIM</h2>
       <div className="flex grid-cols-3 flex-col place-items-center items-center justify-center lg:grid">
         <div className="my-10 w-fit items-center text-center">

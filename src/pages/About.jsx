@@ -4,7 +4,17 @@ import imageAbout from "../assets/images/imageAbout.png";
 
 const About = () => {
   return (
-    <div className="mx-auto mt-32 max-w-screen-xl lg:mt-44" id="about">
+    <div className=" mx-auto mt-32 max-w-screen-xl lg:mt-44" id="about">
+      <div
+        style={{
+          backgroundImage: `url(${vectorSecond})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          height: "900px",
+        }}
+        className="absolute -bottom-[60rem] right-0  -z-10   h-full w-full"
+      ></div>
+
       <div className="mx-2 justify-center lg:mx-0 lg:flex">
         <div className="mx-3 flex flex-col justify-center gap-5 lg:mx-0 lg:w-1/2">
           <h1 className="text-5xl font-extrabold text-[#729975] lg:text-6xl">

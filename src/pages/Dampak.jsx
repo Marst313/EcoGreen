@@ -1,5 +1,5 @@
 import React from "react";
-import vectorHero from "../assets/images/vectorHero.png";
+import vectorHero from "../assets/images/vector2.png";
 import Sepeda from "../assets/images/Sepeda.png";
 import Pohon from "../assets/images/Pohon.png";
 import Matahari from "../assets/images/Matahari.png";
@@ -9,20 +9,21 @@ const Dampak = () => {
   return (
     <div>
       <div
-        className="mx-auto mt-28 max-w-screen-xl"
-        // style={{
-        //   backgroundImage: `url(${vectorHero})`,
-        //   backgroundSize: "cover",
-        //   height: "100vh",
-        //   width: "100%",
-        // }}
-      >
+        className="absolute  -z-10 -mt-[30rem] h-full w-full"
+        style={{
+          backgroundImage: `url(${vectorHero})`,
+          backgroundSize: "cover",
+          height: "100rem",
+        }}
+      ></div>
+
+      <div className="mx-auto mt-28 max-w-screen-xl">
         <div className="flex items-center justify-center text-center">
-          <h2 className=" my-5 lg:w-[50%] lg:text-3xl font-bold text-[#729975]">
+          <h2 className=" my-5 font-bold text-[#729975] lg:w-[50%] lg:text-3xl">
             Dampak Manfaat Dari Pengurangan Emisi Carbon Bagi Lingkungan Sekitar
           </h2>
         </div>
-        <div className="flex flex-col items-center justify-center lg:grid grid-cols-3">
+        <div className="flex grid-cols-3 flex-col items-center justify-center lg:grid">
           <CardDampak
             imgSrc={Sepeda}
             title={"ImageBicycle"}
