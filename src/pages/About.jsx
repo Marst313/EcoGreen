@@ -4,8 +4,8 @@ import imageAbout from "../assets/images/imageAbout.png";
 
 const About = () => {
   return (
-    <div className="mx-auto mt-32 lg:mt-44 max-w-screen-xl">
-      <div className="lg:flex justify-center mx-2 lg:mx-0">
+    <div className="mx-auto mt-32 max-w-screen-xl lg:mt-44" id="about">
+      <div className="mx-2 justify-center lg:mx-0 lg:flex">
         <div className="mx-3 flex flex-col justify-center gap-5 lg:mx-0 lg:w-1/2">
           <h1 className="text-5xl font-extrabold text-[#729975] lg:text-6xl">
             Jejak Karbon

@@ -6,6 +6,9 @@
   --primary-green: 103 204 107;
   --secondary-green: 114 153 117;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   background-color: #ffffff;

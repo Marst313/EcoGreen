@@ -6,19 +6,19 @@ import Kereta from "../assets/images/Kereta.png";
 export const navLinks = [
   {
     name: "Beranda",
-    path: "/",
+    path: "#",
   },
   {
     name: "Tentang",
-    path: "/about",
+    path: "#about",
   },
   {
     name: "Hitung",
-    path: "/calculating",
+    path: "#calculating",
   },
   {
     name: "Tim",
-    path: "/team",
+    path: "#team",
   },
 ];
 

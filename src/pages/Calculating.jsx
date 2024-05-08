@@ -8,7 +8,10 @@ const Calculating = () => {
   const [openModal, setOpenModal] = useState(false);
 
   return (
-    <div className="mx-3 mt-32 flex max-w-screen-xl flex-col gap-5 lg:mx-auto lg:mt-36">
+    <div
+      className="mx-3 mt-32 flex max-w-screen-xl flex-col gap-5 lg:mx-auto lg:mt-36"
+      id="calculating"
+    >
       <h1 className="text-center text-[40px] font-extrabold text-[#729975]">
         Perhitungan Karbon
       </h1>
