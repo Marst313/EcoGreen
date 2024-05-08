@@ -52,12 +52,12 @@ const NavbarComponents = () => {
             {navLinks.map((link) => {
               return (
                 <li key={link.name}>
-                  <NavLink
-                    to={link.path}
+                  <a
+                    href={link.path}
                     className={({ isActive }) => (isActive ? "" : "")}
                   >
                     {link.name}
-                  </NavLink>
+                  </a>
                 </li>
               );
             })}
