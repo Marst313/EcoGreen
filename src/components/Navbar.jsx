@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { navLinks } from "../utils/constant";
-import { Link, NavLink } from "react-router-dom";
+import { Link} from "react-router-dom";
 import logoEcoGreen from "../assets/images/logoEcoGreen.png";
 import NavbarModal from "./NavbarModal";
 

@@ -36,7 +36,7 @@ const Map = () => {
   if (!geolocation) {
     return (
       <div>
-        <h1>Oops! Ada Sesuatu Yang Salah....</h1>
+        <h1 className="text-center mt-20 mx-2 lg:mx-0 text-red-700">Izin untuk menampilkan peta tidak diberikan. Beberapa fitur mungkin tidak berfungsi sepenuhnya.</h1>
       </div>
     );
   }

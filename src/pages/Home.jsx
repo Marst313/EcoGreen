@@ -1,7 +1,6 @@
 import React from "react";
 import heroImage from "../assets/images/heroImage.png";
 import vectorHero from "../assets/images/vectorHero.png";
-import chevron from "../assets/images/chevron.png";
 import About from "./About";
 import Map from "./Map";
 import Calculating from "./Calculating";

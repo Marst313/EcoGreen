@@ -1,5 +1,4 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import { navLinks } from "../utils/constant";
 
 const NavbarModal = ({ openModal, setOpenModal }) => {
