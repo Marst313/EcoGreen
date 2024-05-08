@@ -18,11 +18,11 @@ const Dampak = () => {
         // }}
       >
         <div className="flex items-center justify-center text-center">
-          <h2 className=" my-5 w-[50%] text-[200%] font-bold text-[#729975]">
+          <h2 className=" my-5 lg:w-[50%] lg:text-3xl font-bold text-[#729975]">
             Dampak Manfaat Dari Pengurangan Emisi Carbon Bagi Lingkungan Sekitar
           </h2>
         </div>
-        <div className="grid grid-cols-3">
+        <div className="flex flex-col items-center justify-center lg:grid grid-cols-3">
           <CardDampak
             imgSrc={Sepeda}
             title={"ImageBicycle"}

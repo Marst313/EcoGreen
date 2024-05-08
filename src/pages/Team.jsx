@@ -5,29 +5,20 @@ import Baam from "../assets/images/Baam.png";
 
 const Team = () => {
   return (
-    <div className="mx-auto mt-24 max-w-screen-xl">
-      <div className="flex items-center justify-center text-center">
-        <h2 className=" my-5 w-[50%] text-[250%] font-bold">TIM</h2>
-      </div>
-
-      <div className="mx-10 flex w-auto justify-between">
-        <div className="mx-10 my-10 w-48 flex-col items-center justify-center text-center">
+    <div className="mx-auto my-24 max-w-screen-xl">
+      <h2 className="my-5 text-center text-5xl font-bold">TIM</h2>
+      <div className="flex flex-col justify-center items-center lg:grid grid-cols-3 place-items-center">
+        <div className="my-10 w-fit items-center text-center">
           <img src={Nyoman} alt="Image Nyoman" />
-          <div className="mt-2 h-10 text-center ">
-            <h2 className="mt-5 text-[100%] font-bold">I Nyoman Karma D.N.W</h2>
-          </div>
+          <h2 className="mt-5 text-xl font-bold">I Nyoman Karma D.N.W</h2>
         </div>
-        <div className="mx-10 my-10 w-48 flex-col items-center justify-center text-center">
+        <div className="my-10 w-fit text-center">
           <img src={Baam} alt="Image Baam" />
-          <div className="mt-2 h-10 text-center ">
-            <h2 className="mt-5 text-[100%] font-bold">M. Albaab Ridho P</h2>
-          </div>
+          <h2 className="mt-5 text-xl font-bold">M. Albaab Ridho P</h2>
         </div>
-        <div className="mx-10 my-10 w-48 flex-col items-center justify-center text-center">
+        <div className="my-10 w-fit text-center">
           <img src={Ndaru} alt="Image Ndaru" />
-          <div className="mt-2 h-10 text-center ">
-            <h2 className="mt-5 text-[100%] font-bold">Ndaru Windra Sayidinaa</h2>
-          </div>
+          <h2 className="mt-5 text-xl font-bold">Ndaru Windra Sayidinaa</h2>
         </div>
       </div>
     </div>

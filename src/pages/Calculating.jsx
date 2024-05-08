@@ -8,19 +8,14 @@ const Calculating = () => {
   const [openModal, setOpenModal] = useState(false);
 
   return (
-    <div className="mx-auto mt-36 flex max-w-screen-xl flex-col gap-5">
-      <div className="mt-5 flex justify-center">
-        <h1 className="text-[40px] font-extrabold text-[#729975]">
-          Perhitungan Karbon
-        </h1>
-      </div>
-      <div>
-        <h2 className="text-[25px] font-bold text-[#729975]">
-          Kendaraaan Apa Yang Sering Kamu Gunakan ?
-        </h2>
-      </div>
-
-      <ul className="flex items-center justify-between">
+    <div className="mx-3 lg:mx-auto mt-32 flex max-w-screen-xl flex-col gap-5 lg:mt-36">
+      <h1 className="text-center text-[40px] font-extrabold text-[#729975]">
+        Perhitungan Karbon
+      </h1>
+      <h2 className="text-center lg:text-start lg:text-2xl font-bold text-[#729975]">
+        Kendaraaan Apa Yang Sering Kamu Gunakan ?
+      </h2>
+      <ul className="flex justify-center overflow-x-auto lg:justify-between w-full">
         {cardList.map((item, index) => {
           return (
             <CardCalculating
@@ -102,7 +97,7 @@ const Calculating = () => {
       </div> */}
 
       <button
-        className="to-thirdGreend  mx-auto mt-10 w-52 rounded-md bg-gradient-to-t from-primaryGreen p-5 font-bold text-white "
+        className="mx-auto  lg:mt-10 w-52 rounded-md bg-gradient-to-t from-primaryGreen to-thirdGreend p-5 font-bold text-white "
         type=""
         onClick={() => setOpenModal(true)}
       >

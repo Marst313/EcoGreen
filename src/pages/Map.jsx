@@ -42,7 +42,7 @@ const Map = () => {
   }
 
   return (
-    <div className="mx-auto mt-28 max-w-screen-xl">
+    <div className="mx-auto mt-32 lg:mt-28 max-w-screen-xl">
       <div className="mt-5 flex justify-center">
         <h1 className="text-[40px] font-extrabold text-[#729975]">Peta</h1>
       </div>
