@@ -1,14 +1,30 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+import { navLinks } from "../utils/constant";
 
-const CalculatingModal = ({ openModal, setOpenModal }) => {
+const NavbarModal = ({ openModal, setOpenModal }) => {
   return (
     <div
-      className={`fixed left-0 top-0 z-[9999] flex h-full w-full  flex-col items-center justify-center gap-8 bg-white/10 backdrop-blur-md transition-all duration-500 ${openModal ? "translate-x-0" : "translate-x-full"}`}
+      className={`fixed left-0 top-0 z-[9999] flex w-full flex-col items-center justify-center gap-8 bg-white/10 backdrop-blur-md transition-all duration-500 ${openModal ? "translate-x-0" : "translate-x-full"}`}
     >
-      <h1 className="mx-auto  w-full max-w-screen-xl self-start justify-self-start text-4xl font-bold text-secondaryGreen">
-        Menghitung Karbon
-      </h1>
       <div className="relative h-3/4 w-full max-w-screen-xl rounded-lg border border-black bg-white">
+        <h1 className="m-5 font-bold text-3xl text-[#729975]">EcoGreen</h1>
+        <div className="w-full md:w-auto" id="navbar-default">
+          <ul className="mt-4 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 font-bold md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:p-0  lg:gap-14 rtl:space-x-reverse">
+            {navLinks.map((link) => {
+              return (
+                <li key={link.name} className="mt-2">
+                  <NavLink
+                    to={link.path}
+                    className={({ isActive }) => (isActive ? "" : "")}
+                  >
+                    {link.name}
+                  </NavLink>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
         {/* close button */}
         <button
           className="absolute right-5 top-5"
@@ -55,4 +71,4 @@ const CalculatingModal = ({ openModal, setOpenModal }) => {
   );
 };
 
-export default CalculatingModal;
+export default NavbarModal;
