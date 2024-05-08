@@ -7,12 +7,13 @@ export const CardCalculating = ({
   index,
   setCurrentCard,
   currentCard,
+  className,
 }) => {
   return (
     <li className="my-10">
       <button
         type="button"
-        className={`flex h-80 w-64 flex-col items-center justify-between overflow-hidden rounded-xl border-2 bg-[#BCFADE] ${index === currentCard ? "border-red-500" : "  hover:scale-105"}`}
+        className={`${className && className} flex h-80 w-64 flex-col items-center justify-between overflow-hidden rounded-xl border-2 bg-[#BCFADE] ${index === currentCard ? "border-red-500" : "  hover:scale-105"}`}
         onClick={() => setCurrentCard(index)}
       >
         <img src={img} alt={alt} className="mt-10 w-40" />

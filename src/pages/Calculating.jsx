@@ -107,7 +107,12 @@ const Calculating = () => {
         Hitung Sekarang !
       </button>
 
-      <CalculatingModal openModal={openModal} setOpenModal={setOpenModal} />
+      <CalculatingModal
+        openModal={openModal}
+        setOpenModal={setOpenModal}
+        currentCard={currentCard}
+        setCurrentCard={setCurrentCard}
+      />
     </div>
   );
 };

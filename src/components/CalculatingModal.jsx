@@ -1,14 +1,23 @@
 import React from "react";
+import { CardCalculating } from "./CardCalculating";
+import { cardList } from "../utils/constant";
+import Orang from "../assets/images/Orang.png";
+import Pesawat2 from "../assets/images/Pesawat2.png";
 
-const CalculatingModal = ({ openModal, setOpenModal }) => {
+const CalculatingModal = ({
+  openModal,
+  setOpenModal,
+  currentCard,
+  setCurrentCard,
+}) => {
   return (
     <div
-      className={`fixed left-0 top-0 z-[9999] flex h-full w-full  flex-col items-center  justify-center gap-8 bg-white/10 px-5 backdrop-blur-md transition-all duration-500 ${openModal ? "translate-x-0" : "translate-x-full"}`}
+      className={`fixed left-0 top-0 z-[9999] flex h-full w-full  flex-col items-center  justify-center gap-8 bg-white/10 px-5 backdrop-blur-md transition-all duration-500  ${openModal ? "translate-x-0" : "translate-x-full"} `}
     >
       <h1 className="mx-auto  w-full max-w-screen-xl self-start justify-self-start text-4xl font-bold text-secondaryGreen">
         Menghitung Karbon
       </h1>
-      <div className="relative h-3/4 w-full max-w-screen-xl rounded-lg border-2 border-black/30 bg-white">
+      <div className=" flex h-3/4 w-full max-w-screen-xl justify-between gap-5 rounded-lg  ">
         {/* close button */}
         <button
           className="absolute right-5 top-5"
@@ -51,8 +60,63 @@ const CalculatingModal = ({ openModal, setOpenModal }) => {
           </svg>
         </button>
 
-        <div>1 </div>
-        <div>2</div>
+        <div className="flex w-2/3 flex-col rounded-lg border-2 border-black/30 bg-white p-5">
+          <h1 className="text-3xl font-semibold text-secondaryGreen">
+            Kendaraan
+          </h1>
+
+          <ul className="flex justify-center gap-12 overflow-x-auto lg:w-full lg:justify-between">
+            {cardList.map((item, index) => {
+              return (
+                <CardCalculating
+                  currentCard={currentCard}
+                  setCurrentCard={setCurrentCard}
+                  key={item.name}
+                  {...item}
+                  index={index}
+                />
+              );
+            })}
+          </ul>
+
+          <div className=" mt-10 flex">
+            <img src={Orang} alt="Image Orang" className="" />
+            <div>
+              <div className="mx-10 flex justify-between">
+                <p>0 Km</p>
+                <p>100 Km </p>
+              </div>
+              <div className="mx-10 w-[60rem]">
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  step="1"
+                  className="h-2 w-full appearance-none rounded-lg bg-[#65A2FD]"
+                />
+              </div>
+              <div className=" mx-10 flex w-[60rem] justify-between">
+                <p>0</p>
+                <p>25</p>
+                <p>50</p>
+                <p>75</p>
+                <p>100</p>
+              </div>
+            </div>
+            <img src={Pesawat2} alt="Image Pesawat" />
+          </div>
+
+          <div className="mt-5 flex w-full justify-center">
+            <input
+              type="text"
+              placeholder="/Km"
+              className="w-44 appearance-none rounded-lg text-center outline-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+        </div>
+        <div className="w-5/12 rounded-lg border-2 border-black/30 bg-white">
+          2
+        </div>
       </div>
     </div>
   );
