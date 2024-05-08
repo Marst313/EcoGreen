@@ -8,14 +8,14 @@ const Calculating = () => {
   const [openModal, setOpenModal] = useState(false);
 
   return (
-    <div className="mx-3 lg:mx-auto mt-32 flex max-w-screen-xl flex-col gap-5 lg:mt-36">
+    <div className="mx-3 mt-32 flex max-w-screen-xl flex-col gap-5 lg:mx-auto lg:mt-36">
       <h1 className="text-center text-[40px] font-extrabold text-[#729975]">
         Perhitungan Karbon
       </h1>
-      <h2 className="text-center lg:text-start lg:text-2xl font-bold text-[#729975]">
+      <h2 className="text-center font-bold text-[#729975] lg:text-start lg:text-2xl">
         Kendaraaan Apa Yang Sering Kamu Gunakan ?
       </h2>
-      <ul className="flex justify-center overflow-x-auto lg:justify-between lg:w-full">
+      <ul className="flex justify-center overflow-x-auto lg:w-full lg:justify-between">
         {cardList.map((item, index) => {
           return (
             <CardCalculating
@@ -97,16 +97,14 @@ const Calculating = () => {
       </div> */}
 
       <button
-        className="mx-auto  lg:mt-10 w-52 rounded-md bg-gradient-to-t from-primaryGreen to-thirdGreend p-5 font-bold text-white "
+        className="mx-auto  w-52 rounded-md bg-gradient-to-t from-primaryGreen to-thirdGreend p-5 font-bold text-white lg:mt-10 "
         type=""
         onClick={() => setOpenModal(true)}
       >
         Hitung Sekarang !
       </button>
 
-      {openModal && (
-        <CalculatingModal openModal={openModal} setOpenModal={setOpenModal} />
-      )}
+      <CalculatingModal openModal={openModal} setOpenModal={setOpenModal} />
     </div>
   );
 };
