@@ -15,7 +15,7 @@ const Calculating = () => {
       <h2 className="text-center lg:text-start lg:text-2xl font-bold text-[#729975]">
         Kendaraaan Apa Yang Sering Kamu Gunakan ?
       </h2>
-      <ul className="flex justify-center overflow-x-auto lg:justify-between w-full">
+      <ul className="flex justify-center overflow-x-auto lg:justify-between lg:w-full">
         {cardList.map((item, index) => {
           return (
             <CardCalculating
