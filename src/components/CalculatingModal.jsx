@@ -3,12 +3,12 @@ import React from "react";
 const CalculatingModal = ({ openModal, setOpenModal }) => {
   return (
     <div
-      className={`fixed left-0 top-0 z-[9999] flex h-full w-full  flex-col items-center  justify-center gap-8 bg-white/10 backdrop-blur-md transition-all duration-500 ${openModal ? "translate-x-0" : "translate-x-full"}`}
+      className={`fixed left-0 top-0 z-[9999] flex h-full w-full  flex-col items-center  justify-center gap-8 bg-white/10 px-5 backdrop-blur-md transition-all duration-500 ${openModal ? "translate-x-0" : "translate-x-full"}`}
     >
       <h1 className="mx-auto  w-full max-w-screen-xl self-start justify-self-start text-4xl font-bold text-secondaryGreen">
         Menghitung Karbon
       </h1>
-      <div className="relative h-3/4 w-full max-w-screen-xl rounded-lg border border-black bg-white">
+      <div className="relative h-3/4 w-full max-w-screen-xl rounded-lg border-2 border-black/30 bg-white">
         {/* close button */}
         <button
           className="absolute right-5 top-5"
@@ -50,6 +50,9 @@ const CalculatingModal = ({ openModal, setOpenModal }) => {
             </g>
           </svg>
         </button>
+
+        <div>1 </div>
+        <div>2</div>
       </div>
     </div>
   );
