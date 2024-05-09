@@ -1,6 +1,17 @@
 import React from "react";
+import { cardListHouse } from "../utils/constant";
+import { CardCalculating } from "./CardCalculating";
+import Lampu from "../assets/images/lamp.png";
+import Water from "../assets/images/water.png";
 
-const CalculatingModalHouse = ({ openModal, setOpenModal, setData, data }) => {
+const CalculatingModalHouse = ({
+  openModal,
+  setOpenModal,
+  setData,
+  data,
+  currentCard,
+  setCurrentCard,
+}) => {
   const handleOnClick = (e) => {
     e.preventDefault();
     setOpenModal(3);
@@ -57,15 +68,76 @@ const CalculatingModalHouse = ({ openModal, setOpenModal, setData, data }) => {
           </svg>
         </button>
 
-        <div className="flex w-full flex-col items-center rounded-lg border-2 border-black/30 bg-white p-5 ">
-          <h1 className="text-3xl font-semibold text-secondaryGreen">
+        <div className="flex w-full flex-col overflow-scroll rounded-lg border-2 border-black/30 bg-white p-5 ">
+          <h1 className="text-center text-3xl font-semibold text-secondaryGreen">
             Rumah Tangga
           </h1>
+
+          <div className="mt-5">
+            <h2 className="text-2xl font-bold">Jumlah Orang di Rumah</h2>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-bold">
+              Sumber Energi yang di Gunakan
+            </h2>
+            <ul className="flex w-full justify-center gap-12 overflow-x-auto pl-96 lg:justify-between lg:p-0">
+              {cardListHouse.map((item, index) => {
+                return (
+                  <CardCalculating
+                    currentCard={currentCard}
+                    setCurrentCard={setCurrentCard}
+                    key={item.name}
+                    {...item}
+                    index={index}
+                  />
+                );
+              })}
+            </ul>
+          </div>
+
+          <div className="mt-10 flex  justify-center w-full items-center gap-5 ">
+            <img src={Lampu} alt="Image Orang" className="w-14" />
+            <label htmlFor="" className="font-bold">
+              0 Kwh
+            </label>
+            <input
+              type="range"
+              min="0"
+              max="100"
+              step="1"
+              className="h-2 w-1/2 appearance-none rounded-lg bg-[#65A2FD]"
+              value={""}
+              onChange={""}
+            />
+            <label htmlFor="" className="font-bold">
+              2K+ Kwh
+            </label>
+          </div>
+
+          <div className="mt-10 flex  justify-center w-full items-center gap-5 ">
+            <img src={Water} alt="Image Orang" className="w-14" />
+            <label htmlFor="" className="font-bold">
+              0
+            </label>
+            <input
+              type="range"
+              min="0"
+              max="100"
+              step="1"
+              className="h-2 w-2/4 appearance-none rounded-lg bg-[#65A2FD]"
+              value={""}
+              onChange={""}
+            />
+            <label htmlFor="" className="font-bold">
+              2K+
+            </label>
+          </div>
 
           <button
             type="button"
             onClick={handleOnClick}
-            className="bg-fourthGreen hover:bg-fourthGreen/70 mt-5 w-full rounded-lg py-3 text-white hover:text-white/80"
+            className="mt-5 w-full rounded-lg bg-fourthGreen py-3 text-white hover:bg-fourthGreen/70 hover:text-white/80"
           >
             Next
           </button>
