@@ -4,20 +4,30 @@ import { cardList } from "../utils/constant";
 import Orang from "../assets/images/Orang.png";
 import Pesawat2 from "../assets/images/Pesawat2.png";
 
-const CalculatingModal = ({
+const CalculatingModalTransport = ({
   openModal,
   setOpenModal,
   currentCard,
   setCurrentCard,
+  data,
+  setData,
 }) => {
+  const handleNext = (e) => {
+    e.preventDefault();
+  };
+
+  const handleOnChange = (e) => {
+    setData({ ...data, km: e.target.value });
+  };
+
   return (
     <div
-      className={`fixed left-0 top-0 z-[9999] flex h-full w-full  flex-col items-center  justify-center gap-8 bg-white/10 px-5 backdrop-blur-md transition-all duration-500  ${openModal ? "translate-x-0" : "translate-x-full"} `}
+      className={`fixed left-0 top-0 z-[9999] flex h-full w-full  flex-col items-center   justify-center gap-8 bg-white/10 px-5 backdrop-blur-md transition-all duration-500  ${openModal === 4 ? "translate-x-0" : "translate-x-full"} `}
     >
       <h1 className="mx-auto  w-full max-w-screen-xl self-start justify-self-start text-4xl font-bold text-secondaryGreen">
         Menghitung Karbon
       </h1>
-      <div className=" flex h-3/4 w-full max-w-screen-xl justify-between gap-5 rounded-lg  ">
+      <div className=" flex h-3/4 w-full max-w-screen-xl justify-between gap-5 rounded-lg ">
         {/* close button */}
         <button
           className="absolute right-5 top-5"
@@ -60,12 +70,11 @@ const CalculatingModal = ({
           </svg>
         </button>
 
-        <div className="flex w-2/3 flex-col rounded-lg border-2 border-black/30 bg-white p-5">
+        <div className="flex w-full flex-col items-center rounded-lg border-2 border-black/30 bg-white p-5 ">
           <h1 className="text-3xl font-semibold text-secondaryGreen">
             Kendaraan
           </h1>
-
-          <ul className="flex justify-center gap-12 overflow-x-auto lg:w-full lg:justify-between">
+          <ul className="flex w-full justify-center gap-12 overflow-x-auto pl-96 lg:justify-between lg:p-0">
             {cardList.map((item, index) => {
               return (
                 <CardCalculating
@@ -78,48 +87,44 @@ const CalculatingModal = ({
               );
             })}
           </ul>
+          <div className="mt-10 flex  w-full items-center justify-center gap-5 ">
+            <img src={Orang} alt="Image Orang" className="w-14" />
+            <label htmlFor="">0 Km</label>
+            <input
+              type="range"
+              min="0"
+              max="100"
+              step="1"
+              className="h-2 w-3/4 appearance-none rounded-lg bg-[#65A2FD]"
+              value={data.km}
+              onChange={handleOnChange}
+            />
+            <label htmlFor="">100 Km</label>
 
-          <div className=" mt-10 flex">
-            <img src={Orang} alt="Image Orang" className="" />
-            <div>
-              <div className="mx-10 flex justify-between">
-                <p>0 Km</p>
-                <p>100 Km </p>
-              </div>
-              <div className="mx-10 w-[60rem]">
-                <input
-                  type="range"
-                  min="0"
-                  max="100"
-                  step="1"
-                  className="h-2 w-full appearance-none rounded-lg bg-[#65A2FD]"
-                />
-              </div>
-              <div className=" mx-10 flex w-[60rem] justify-between">
-                <p>0</p>
-                <p>25</p>
-                <p>50</p>
-                <p>75</p>
-                <p>100</p>
-              </div>
-            </div>
-            <img src={Pesawat2} alt="Image Pesawat" />
+            <img src={Pesawat2} alt="Image Pesawat" className="w-20" />
           </div>
-
-          <div className="mt-5 flex w-full justify-center">
+          <div className="mt-5 flex w-full justify-center gap-2">
             <input
               type="text"
               placeholder="/Km"
-              className="w-44 appearance-none rounded-lg text-center outline-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+              id="KM"
+              max={100}
+              className="w-14 appearance-none rounded-lg text-center outline-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+              value={data.km}
+              onChange={handleOnChange}
             />
+            <label htmlFor="KM">/ KM</label>
           </div>
-        </div>
-        <div className="w-5/12 rounded-lg border-2 border-black/30 bg-white">
-          2
+          <button
+            type="submit"
+            className="bg-fourthGreen hover:bg-fourthGreen/70 mt-5 w-full rounded-lg py-3 text-white hover:text-white/80"
+          >
+            Simpan
+          </button>
         </div>
       </div>
     </div>
   );
 };
 
-export default CalculatingModal;
+export default CalculatingModalTransport;
