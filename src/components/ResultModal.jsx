@@ -38,9 +38,9 @@ const ResultModal = ({
 
   return (
     <div
-      className={`fixed left-0 top-0 z-[9999] flex h-full w-full  flex-col items-center   justify-center gap-8 bg-white/10 px-5 backdrop-blur-md transition-all duration-500  ${openModal === 5 ? "translate-x-0" : "translate-x-full"} `}
+      className={`fixed left-0 top-0 z-[9999] flex h-full w-full  flex-col items-center   justify-center gap-8 bg-white/10 px-5 backdrop-blur-md transition-all duration-500  ${openModal === 5 ? "translate-x-0" : "translate-x-[300%]"} `}
     >
-      <h1 className="mx-auto mt-5  w-fit max-w-screen-xl self-start justify-self-start text-4xl font-bold text-secondaryGreen">
+      <h1 className="mx-auto mt-5 w-fit max-w-screen-xl self-start justify-self-start text-4xl font-bold text-secondaryGreen">
         Emisi Karbon Yang Kamu Lakukan
       </h1>
       {/* close button */}
@@ -85,7 +85,7 @@ const ResultModal = ({
         </svg>
       </button>
 
-      <div className="e-card">
+      <div className="flex w-[23rem] flex-col overflow-y-auto rounded-lg border-2 border-black/30 bg-white p-5 lg:w-fit ">
         <div className="flex flex-col items-center justify-center">
           <h1 className="mt-3 text-3xl font-bold">{status}</h1>
           <img src={file} alt="" className="my-10 h-36 w-36" />

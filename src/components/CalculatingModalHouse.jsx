@@ -75,7 +75,7 @@ const CalculatingModalHouse = ({
           </svg>
         </button>
 
-        <div className="flex w-[30rem] flex-col overflow-scroll rounded-lg border-2 border-black/30 bg-white p-5 lg:w-full ">
+        <div className="flex w-[23rem] flex-col overflow-scroll rounded-lg border-2 border-black/30 bg-white p-5 lg:w-full ">
           <h1 className="text-center text-3xl font-semibold text-secondaryGreen">
             Rumah Tangga
           </h1>

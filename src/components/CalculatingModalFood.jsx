@@ -65,7 +65,7 @@ const CalculatingModalFood = ({ openModal, setOpenModal, setData, data }) => {
           </svg>
         </button>
 
-        <div className="flex w-[30rem] flex-col overflow-scroll rounded-lg border-2 border-black/30 bg-white p-5 lg:w-full ">
+        <div className="flex w-[23rem] flex-col overflow-scroll rounded-lg border-2 border-black/30 bg-white p-5 lg:w-full ">
           <h1 className="text-center text-3xl font-semibold text-secondaryGreen">
             Makanan
           </h1>
@@ -171,7 +171,7 @@ const CalculatingModalFood = ({ openModal, setOpenModal, setData, data }) => {
             <button
               type="button"
               onClick={handleOnClick2}
-              className="mt-5 w-full mr-2 rounded-lg bg-fourthGreen py-3 text-white hover:bg-fourthGreen/70 hover:text-white/80"
+              className="mr-2 mt-5 w-full rounded-lg bg-fourthGreen py-3 text-white hover:bg-fourthGreen/70 hover:text-white/80"
             >
               Kembali
             </button>
