@@ -6,14 +6,15 @@ import CalculatingModalTransport from "../components/CalculatingModalTransport";
 import CalculatingModalHouse from "../components/CalculatingModalHouse";
 import CalculatingModalFood from "../components/CalculatingModalFood";
 import CalculatingModalBio from "../components/CalculatingModalBio";
+import ResultModal from "../components/ResultModal";
 
 const Calculating = () => {
-  const [currentCard, setCurrentCard] = useState(0);
   const [openModal, setOpenModal] = useState(0);
+  const [hasilEmisi, setHasilEmisi] = useState("");
   const [data, setData] = useState({
     //  Bio
     age: 0, //umur user
-    gender: "pria", // jenis kelamin user
+    gender: "Pria", // jenis kelamin user
     location: "", //lokasi user
 
     // House
@@ -23,14 +24,14 @@ const Calculating = () => {
     waterMonth: 0, // penggunaan air
 
     // Food
-    meat: 0, // daging yang dimakan 0:ayam 1:sapi 2:ikan
-    timeMeat: "tidak pernah", //seberapa sering makan daging
+    meat: "Ayam", // daging yang dimakan 0:ayam 1:sapi 2:ikan
+    timeMeat: 0, // kg daging
 
-    milk: 0, // susu yang diminum 0:susu 1:keju 2:yogurt
-    timeMilk: "tidak pernah",
+    milk: "Susu", // susu yang diminum 0:susu 1:keju 2:yogurt
+    timeMilk: 0, // liter
 
     // tranposrt
-    transport: 0, // kendaraan yg digunakan 0:motor 1:pesawat 2:mobil 3:kereta
+    transport: "Motor", // kendaraan yg digunakan 0:motor 1:pesawat 2:mobil 3:kereta
     km: 0, //seberapa jauh berkendara
   });
 
@@ -48,13 +49,21 @@ const Calculating = () => {
       <ul className="flex justify-center overflow-x-auto lg:w-full lg:justify-between lg:overflow-hidden">
         {cardList.map((item, index) => {
           return (
-            <CardCalculating
-              currentCard={currentCard}
-              setCurrentCard={setCurrentCard}
-              key={item.name}
-              {...item}
-              index={index}
-            />
+            <li className="my-10" key={index}>
+              <button
+                type="button"
+                className={`flex h-80 w-64 flex-col items-center justify-between overflow-hidden rounded-xl border-2 bg-[#BCFADE] ${item.name === data.transport ? "border-red-500" : "  hover:scale-105"}`}
+                onClick={() => setData({ ...data, transport: item.name })}
+              >
+                <img src={item.img} alt={item.alt} className="mt-10 w-40" />
+
+                <div className="mx-10 mt-2 flex h-14 w-64 items-center justify-center rounded-xl bg-[#6af56f]">
+                  <p className="text-base font-semibold text-black/80">
+                    {item.name}
+                  </p>
+                </div>
+              </button>
+            </li>
           );
         })}
       </ul>
@@ -75,16 +84,6 @@ const Calculating = () => {
         setData={setData}
       />
 
-      {/* Transport */}
-      <CalculatingModalTransport
-        openModal={openModal}
-        setOpenModal={setOpenModal}
-        currentCard={currentCard}
-        setCurrentCard={setCurrentCard}
-        data={data}
-        setData={setData}
-      />
-
       {/* HouseHould */}
       <CalculatingModalHouse
         openModal={openModal}
@@ -99,6 +98,26 @@ const Calculating = () => {
         setOpenModal={setOpenModal}
         data={data}
         setData={setData}
+      />
+
+      {/* Transport */}
+      <CalculatingModalTransport
+        openModal={openModal}
+        setOpenModal={setOpenModal}
+        data={data}
+        setData={setData}
+        setHasilEmisi={setHasilEmisi}
+        hasilEmisi={hasilEmisi}
+      />
+
+      {/* Result */}
+      <ResultModal
+        openModal={openModal}
+        setOpenModal={setOpenModal}
+        data={data}
+        setData={setData}
+        setHasilEmisi={setHasilEmisi}
+        hasilEmisi={hasilEmisi}
       />
     </div>
   );

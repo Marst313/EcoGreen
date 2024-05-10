@@ -64,9 +64,9 @@ export const cardListFood = [
     alt: "gambar ayam",
   },
   {
-    name: "Daging",
+    name: "Sapi",
     img: Daging,
-    alt: "gambar daging",
+    alt: "gambar sapi",
   },
   {
     name: "Ikan",
@@ -113,11 +113,11 @@ export const cardListHouse = [
 
 export const genderList = [
   {
-    name: "pria",
+    name: "Pria",
     img: Male,
   },
   {
-    name: "perempuan",
+    name: "Perempuan",
     img: Female,
   },
 ];

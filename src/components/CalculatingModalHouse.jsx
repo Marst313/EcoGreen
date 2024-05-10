@@ -94,8 +94,10 @@ const CalculatingModalHouse = ({
                   <li className="my-10" key={index}>
                     <button
                       type="button"
-                      className={`flex h-80 w-64 flex-col items-center justify-between overflow-hidden rounded-xl border-2 bg-[#BCFADE] ${index === data.energyType ? "border-red-500" : "  hover:scale-105"}`}
-                      onClick={() => setData({ ...data, energyType: index })}
+                      className={`flex h-80 w-64 flex-col items-center justify-between overflow-hidden rounded-xl border-2 bg-[#BCFADE] ${item.name === data.energyType ? "border-red-500" : "  hover:scale-105"}`}
+                      onClick={() =>
+                        setData({ ...data, energyType: item.name })
+                      }
                     >
                       <img
                         src={item.img}

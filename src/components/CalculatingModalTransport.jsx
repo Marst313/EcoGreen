@@ -1,21 +1,25 @@
 import React from "react";
-import { CardCalculating } from "./CardCalculating";
 import { cardList } from "../utils/constant";
 import Orang from "../assets/images/Orang.png";
 import Pesawat2 from "../assets/images/Pesawat2.png";
+import { calculateCarbonEmissions } from "../utils/function";
 
 const CalculatingModalTransport = ({
   openModal,
   setOpenModal,
-  currentCard,
-  setCurrentCard,
+
   data,
   setData,
+
+  setHasilEmisi,
 }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(data);
+    const hasil = calculateCarbonEmissions(data);
+
+    setHasilEmisi(hasil);
+    setOpenModal(5);
   };
 
   const handleOnChange = (e) => {
@@ -85,8 +89,8 @@ const CalculatingModalTransport = ({
                 <li className="my-10" key={index}>
                   <button
                     type="button"
-                    className={`flex h-80 w-64 flex-col items-center justify-between overflow-hidden rounded-xl border-2 bg-[#BCFADE] ${index === data.transport ? "border-red-500" : "  hover:scale-105"}`}
-                    onClick={() => setData({ ...data, transport: index })}
+                    className={`flex h-80 w-64 flex-col items-center justify-between overflow-hidden rounded-xl border-2 bg-[#BCFADE] ${item.name === data.transport ? "border-red-500" : "  hover:scale-105"}`}
+                    onClick={() => setData({ ...data, transport: item.name })}
                   >
                     <img src={item.img} alt={item.alt} className="mt-10 w-40" />
 

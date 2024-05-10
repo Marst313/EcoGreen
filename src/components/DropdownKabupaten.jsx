@@ -40,7 +40,7 @@ const DropdownKabupaten = ({ data, setData }) => {
     <Select
       options={dataKab}
       onChange={handleChange}
-      placeholder="Pilih Kabupaten"
+      placeholder="Pilih Provinsi"
       isSearchable={true}
       required
     />

@@ -132,7 +132,7 @@ const CalculatingModalBio = ({ openModal, setOpenModal, setData, data }) => {
           </div>
 
           <div>
-            <h1>Pilih Kabupaten di Indonesia</h1>
+            <h1>Pilih Provinsi di Indonesia</h1>
             <DropdownKabupaten setData={setData} data={data} />
           </div>
 

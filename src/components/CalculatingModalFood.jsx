@@ -3,33 +3,12 @@ import Ayam from "../assets/images/ayam.png";
 import Susu from "../assets/images/milk.png";
 import { cardListFood, cardListFood2 } from "../utils/constant";
 
-const CalculatingModalFood = ({
-  openModal,
-  setOpenModal,
-  setData,
-  data,
-  currentCard,
-  setCurrentCard,
-}) => {
-  const [meatFrequency, setMeatFrequency] = useState(0);
-  const [milkFrequency, setMilkFrequency] = useState(0);
-
+const CalculatingModalFood = ({ openModal, setOpenModal, setData, data }) => {
   const handleOnClick = (e) => {
     e.preventDefault();
     setOpenModal(4);
   };
 
-  const handleMeatChange = (e) => {
-    const newValue = parseInt(e.target.value);
-    setMeatFrequency(newValue);
-    setData({ ...data, meatFrequency: newValue });
-  };
-
-  const handleMilkChange = (e) => {
-    const newValue = parseInt(e.target.value);
-    setMilkFrequency(newValue);
-    setData({ ...data, milkFrequency: newValue });
-  };
   return (
     <div
       className={`fixed left-0 top-0 z-[9999] flex h-full w-full  flex-col items-center   justify-center gap-8 bg-white/10 px-5 backdrop-blur-md transition-all duration-500  ${openModal === 3 ? "-translate-x-0" : "-translate-x-full"} `}
@@ -91,19 +70,19 @@ const CalculatingModalFood = ({
               <img src={Ayam} alt="Image Orang" className="w-14" />
             </div>
             <label htmlFor="" className="font-bold">
-              Tidak Pernah
+              0 / Kg
             </label>
             <input
               type="range"
               min="0"
-              max="2"
+              max="100"
               step="1"
               className="h-2 w-1/2 appearance-none rounded-lg bg-[#65A2FD]"
-              value={meatFrequency}
-              onChange={handleMeatChange}
+              value={data.timeMeat}
+              onChange={(e) => setData({ ...data, timeMeat: e.target.value })}
             />
             <label htmlFor="" className="font-bold">
-              Sering
+              {data.timeMeat} / KG
             </label>
           </div>
 
@@ -115,8 +94,8 @@ const CalculatingModalFood = ({
                   <li className="my-10" key={index}>
                     <button
                       type="button"
-                      className={`flex h-80 w-64 flex-col items-center justify-between overflow-hidden rounded-xl border-2 bg-[#BCFADE] ${index === data.meat ? "border-red-500" : "  hover:scale-105"}`}
-                      onClick={() => setData({ ...data, meat: index })}
+                      className={`flex h-80 w-64 flex-col items-center justify-between overflow-hidden rounded-xl border-2 bg-[#BCFADE] ${item.name === data.meat ? "border-red-500" : "  hover:scale-105"}`}
+                      onClick={() => setData({ ...data, meat: item.name })}
                     >
                       <img
                         src={item.img}
@@ -146,15 +125,15 @@ const CalculatingModalFood = ({
             <input
               type="range"
               min="0"
-              max="2"
+              max="100"
               step="1"
               id="milk-range"
               className="h-2 w-1/2 appearance-none rounded-lg bg-[#65A2FD]"
-              value={milkFrequency}
-              onChange={handleMilkChange}
+              value={data.timeMilk}
+              onChange={(e) => setData({ ...data, timeMilk: e.target.value })}
             />
             <label htmlFor="milk-range" className="font-bold">
-              Sering
+              {data.timeMilk} / Lt
             </label>
           </div>
 
@@ -168,8 +147,8 @@ const CalculatingModalFood = ({
                   <li className="my-10" key={index}>
                     <button
                       type="button"
-                      className={`flex h-80 w-64 flex-col items-center justify-between overflow-hidden rounded-xl border-2 bg-[#BCFADE] ${index === data.milk ? "border-red-500" : "  hover:scale-105"}`}
-                      onClick={() => setData({ ...data, milk: index })}
+                      className={`flex h-80 w-64 flex-col items-center justify-between overflow-hidden rounded-xl border-2 bg-[#BCFADE] ${item.name === data.milk ? "border-red-500" : "  hover:scale-105"}`}
+                      onClick={() => setData({ ...data, milk: item.name })}
                     >
                       <img
                         src={item.img}
