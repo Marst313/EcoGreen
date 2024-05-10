@@ -1,8 +1,6 @@
-# Readme berisikan Nama Tim, Nama Anggota, dan Brief
+# Readme ECO GREEN
 
-Explanation mengenai produk yang dibawakan
-
-- Anggota Tim
+# Anggota Tim
 
 1. I Nyoman Karma Dharma Nalendra Wardana
 2. Ndaru Windra Sayidinaa
@@ -11,3 +9,7 @@ Explanation mengenai produk yang dibawakan
 # URL
 
 <a href="https://ecogreenn.netlify.app/" target="__blank">https://ecogreenn.netlify.app/ </a>
+
+# Demo Aplikasi
+
+<a href="https://ecogreenn.netlify.app/" target="__blank">Video Demo/ </a>
