@@ -116,7 +116,7 @@ const CalculatingModalTransport = ({
             </ul>
             <div className="mt-10 flex  w-full items-center justify-center gap-5 ">
               <img src={Orang} alt="Image Orang" className="w-14" />
-              <label htmlFor="">0 Km</label>
+              <label htmlFor="" className="text-[#729975]">0 Km</label>
               <input
                 type="range"
                 min="0"
@@ -126,7 +126,7 @@ const CalculatingModalTransport = ({
                 value={data.km}
                 onChange={handleOnChange}
               />
-              <label htmlFor="">100 Km</label>
+              <label htmlFor="" className="text-[#729975]">100 Km</label>
 
               <img src={Pesawat2} alt="Image Pesawat" className="w-20" />
             </div>
@@ -140,7 +140,7 @@ const CalculatingModalTransport = ({
                 value={data.km}
                 onChange={handleOnChange}
               />
-              <label htmlFor="KM">/ KM</label>
+              <label htmlFor="KM" className="text-[#729975]">/ KM</label>
             </div>
             <div className="flex w-full">
               <button

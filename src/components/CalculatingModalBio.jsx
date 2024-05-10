@@ -80,7 +80,7 @@ const CalculatingModalBio = ({ openModal, setOpenModal, setData, data }) => {
             <div className="w-1/2 ">
               <label
                 htmlFor="default-range"
-                className="text-md mb-2 block font-bold text-gray-900 "
+                className="text-md mb-2 block font-bold text-[#729975]"
               >
                 Age
               </label>
@@ -104,7 +104,7 @@ const CalculatingModalBio = ({ openModal, setOpenModal, setData, data }) => {
           </div>
 
           <div className="mt-3" >
-            <h2 className="self-start text-center font-bold text-xl ">Jenis Kelamin</h2>
+            <h2 className="self-start text-center font-bold text-xl text-[#729975] ">Jenis Kelamin</h2>
 
             <ul className="mt-5 flex gap-10">
               {genderList.map((gender) => {
@@ -132,7 +132,7 @@ const CalculatingModalBio = ({ openModal, setOpenModal, setData, data }) => {
           </div>
 
           <div className="mt-3">
-            <h1>Pilih Provinsi di Indonesia</h1>
+            <h1 className="text-[#729975]">Pilih Provinsi di Indonesia</h1>
             <DropdownKabupaten setData={setData} data={data} />
           </div>
 

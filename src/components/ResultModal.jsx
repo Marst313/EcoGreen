@@ -87,17 +87,39 @@ const ResultModal = ({
 
       <div className="flex w-[23rem] flex-col overflow-y-auto rounded-lg border-2 border-black/30 bg-white p-5 lg:w-fit ">
         <div className="flex flex-col items-center justify-center">
-          <h1 className="mt-3 text-3xl font-bold">{status}</h1>
+          <h1
+            className="mt-3 text-3xl font-bold"
+            style={{
+              color:
+                status === "Aman"
+                  ? "green"
+                  : status === "Bahaya"
+                    ? "red"
+                    : "yellow",
+            }}
+          >
+            {status}
+          </h1>
           <img src={file} alt="" className="my-10 h-36 w-36" />
         </div>
-        <h5 className="text-center text-xl font-bold text-[#729975]">
+        <h5
+          className="text-center text-xl font-bold text-[#729975] "
+          style={{
+            color:
+              status === "Aman"
+                ? "green"
+                : status === "Bahaya"
+                  ? "red"
+                  : "yellow",
+          }}
+        >
           Hasil Total Emisi Kamu Adalah {hasilEmisi}
         </h5>
         <div className="mx-2 mt-5 text-justify">
-          <h2 className="p-2 text-xl font-bold">Tips</h2>
+          <h2 className="p-2 text-xl font-bold text-[#729975]">Tips</h2>
           {recommendations.map((item, index) => {
             return (
-              <li key={index} className="p-2">
+              <li key={index} className="p-2 text-[#729975]">
                 {item}
               </li>
             );

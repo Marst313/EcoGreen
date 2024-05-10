@@ -83,13 +83,13 @@ const CalculatingModalFood = ({ openModal, setOpenModal, setData, data }) => {
               value={data.timeMeat}
               onChange={(e) => setData({ ...data, timeMeat: e.target.value })}
             />
-            <label htmlFor="" className="font-bold">
+            <label htmlFor="" className="font-bold text-[#729975]">
               {data.timeMeat} / Kg
             </label>
           </div>
 
           <div className="mt-10">
-            <h2 className="text-2xl font-bold">Jenis Konsumsi Daging</h2>
+            <h2 className="text-2xl font-bold text-[#729975]">Jenis Konsumsi Daging</h2>
             <ul className="flex w-full justify-center gap-12 overflow-x-auto pl-96 lg:justify-between lg:overflow-hidden lg:p-0">
               {cardListFood.map((item, index) => {
                 return (
@@ -131,13 +131,13 @@ const CalculatingModalFood = ({ openModal, setOpenModal, setData, data }) => {
               value={data.timeMilk}
               onChange={(e) => setData({ ...data, timeMilk: e.target.value })}
             />
-            <label htmlFor="milk-range" className="font-bold">
+            <label htmlFor="milk-range" className="font-bold text-[#729975]">
               {data.timeMilk} / Lt
             </label>
           </div>
 
           <div className="mt-10">
-            <h2 className="text-2xl font-bold">
+            <h2 className="text-2xl font-bold text-[#729975]">
               Jenis produk susu yang dikonsumsi
             </h2>
             <ul className="flex w-full justify-center gap-12 overflow-x-auto pl-96 lg:justify-between lg:overflow-hidden lg:p-0">

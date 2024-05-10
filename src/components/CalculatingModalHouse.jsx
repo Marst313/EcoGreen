@@ -81,16 +81,16 @@ const CalculatingModalHouse = ({
           </h1>
 
           <div className="mt-5">
-            <h2 className="text-2xl font-bold">Jumlah Orang di Rumah</h2>
+            <h2 className="text-2xl font-bold text-[#729975]">Jumlah Orang di Rumah</h2>
 
-            <div className="my-5 flex items-center gap-5">
+            <div className="my-5 flex items-center gap-5 text-[#729975]">
               <img src={jumlahOrangImg} alt="orang" />
               <DropdownEvenNumbers data={data} setData={setData} />
             </div>
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold">
+            <h2 className="text-2xl font-bold text-[#729975]">
               Sumber Energi yang di Gunakan
             </h2>
             <ul className="flex w-full justify-center gap-12 overflow-x-auto pl-96 lg:justify-center lg:overflow-x-hidden lg:p-0">
@@ -124,7 +124,7 @@ const CalculatingModalHouse = ({
 
           <div className="relative mt-10  flex w-full items-center justify-center  gap-5">
             <img src={Lampu} alt="Image Orang" className="w-14" />
-            <label htmlFor="range-energy" className="font-bold">
+            <label htmlFor="range-energy" className="font-bold text-[#729975]">
               0 Kwh
             </label>
             <input
@@ -139,7 +139,7 @@ const CalculatingModalHouse = ({
                 setData({ ...data, energyMonth: e.target.value })
               }
             />
-            <label htmlFor="range-energy" className="font-bold">
+            <label htmlFor="range-energy" className="font-bold text-[#729975]">
               2K+ Kwh
             </label>
 
@@ -152,7 +152,7 @@ const CalculatingModalHouse = ({
 
           <div className="relative mt-10  flex w-full items-center justify-center  gap-5">
             <img src={Water} alt="Image Orang" className="w-10" />
-            <label htmlFor="water-energy" className="font-bold">
+            <label htmlFor="water-energy" className="font-bold text-[#729975]">
               0 Liter
             </label>
             <input
@@ -164,7 +164,7 @@ const CalculatingModalHouse = ({
               value={data.waterMonth}
               onChange={(e) => setData({ ...data, waterMonth: e.target.value })}
             />
-            <label htmlFor="water-month" className="font-bold">
+            <label htmlFor="water-month" className="font-bold text-[#729975]">
               2K+ Liter
             </label>
 
