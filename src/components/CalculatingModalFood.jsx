@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import Ayam from "../assets/images/ayam.png";
 import Susu from "../assets/images/milk.png";
-import { CardCalculating } from "./CardCalculating";
 import { cardListFood, cardListFood2 } from "../utils/constant";
 
 const CalculatingModalFood = ({
@@ -12,9 +11,24 @@ const CalculatingModalFood = ({
   currentCard,
   setCurrentCard,
 }) => {
+  const [meatFrequency, setMeatFrequency] = useState(0);
+  const [milkFrequency, setMilkFrequency] = useState(0);
+
   const handleOnClick = (e) => {
     e.preventDefault();
     setOpenModal(4);
+  };
+
+  const handleMeatChange = (e) => {
+    const newValue = parseInt(e.target.value);
+    setMeatFrequency(newValue);
+    setData({ ...data, meatFrequency: newValue });
+  };
+
+  const handleMilkChange = (e) => {
+    const newValue = parseInt(e.target.value);
+    setMilkFrequency(newValue);
+    setData({ ...data, milkFrequency: newValue });
   };
   return (
     <div
@@ -25,7 +39,7 @@ const CalculatingModalFood = ({
       </h1>
 
       {/* close button */}
-      <div className=" flex h-3/4 w-full max-w-screen-xl justify-between gap-5 rounded-lg ">
+      <div className=" flex h-3/4 w-fit max-w-screen-xl justify-between gap-5 rounded-lg ">
         <button
           className="absolute right-5 top-5"
           type="button"
@@ -82,11 +96,11 @@ const CalculatingModalFood = ({
             <input
               type="range"
               min="0"
-              max="100"
+              max="2"
               step="1"
               className="h-2 w-1/2 appearance-none rounded-lg bg-[#65A2FD]"
-              value={""}
-              onChange={""}
+              value={meatFrequency}
+              onChange={handleMeatChange}
             />
             <label htmlFor="" className="font-bold">
               Sering
@@ -95,16 +109,28 @@ const CalculatingModalFood = ({
 
           <div className="mt-10">
             <h2 className="text-2xl font-bold">Jenis Konsumsi Daging</h2>
-            <ul className="flex w-full justify-center gap-12 overflow-x-auto pl-96 lg:justify-between lg:p-0">
+            <ul className="flex w-full justify-center gap-12 overflow-x-auto pl-96 lg:justify-between lg:overflow-hidden lg:p-0">
               {cardListFood.map((item, index) => {
                 return (
-                  <CardCalculating
-                    currentCard={currentCard}
-                    setCurrentCard={setCurrentCard}
-                    key={item.name}
-                    {...item}
-                    index={index}
-                  />
+                  <li className="my-10" key={index}>
+                    <button
+                      type="button"
+                      className={`flex h-80 w-64 flex-col items-center justify-between overflow-hidden rounded-xl border-2 bg-[#BCFADE] ${index === data.meat ? "border-red-500" : "  hover:scale-105"}`}
+                      onClick={() => setData({ ...data, meat: index })}
+                    >
+                      <img
+                        src={item.img}
+                        alt={item.alt}
+                        className="mt-10 w-40"
+                      />
+
+                      <div className="mx-10 mt-2 flex h-14 w-64 items-center justify-center rounded-xl bg-[#6af56f]">
+                        <p className="text-base font-semibold text-black/80">
+                          {item.name}
+                        </p>
+                      </div>
+                    </button>
+                  </li>
                 );
               })}
             </ul>
@@ -114,35 +140,50 @@ const CalculatingModalFood = ({
             <div className="rounded-full bg-[#888F86] p-4">
               <img src={Susu} alt="Image Orang" className="w-14" />
             </div>
-            <label htmlFor="" className="font-bold">
+            <label htmlFor="milk-range" className="font-bold">
               Tidak Pernah
             </label>
             <input
               type="range"
               min="0"
-              max="100"
+              max="2"
               step="1"
+              id="milk-range"
               className="h-2 w-1/2 appearance-none rounded-lg bg-[#65A2FD]"
-              value={""}
-              onChange={""}
+              value={milkFrequency}
+              onChange={handleMilkChange}
             />
-            <label htmlFor="" className="font-bold">
+            <label htmlFor="milk-range" className="font-bold">
               Sering
             </label>
           </div>
 
           <div className="mt-10">
-            <h2 className="text-2xl font-bold">Jenis produk susu yang dikonsumsi</h2>
-            <ul className="flex w-full justify-center gap-12 overflow-x-auto pl-96 lg:justify-between lg:p-0">
+            <h2 className="text-2xl font-bold">
+              Jenis produk susu yang dikonsumsi
+            </h2>
+            <ul className="flex w-full justify-center gap-12 overflow-x-auto pl-96 lg:justify-between lg:overflow-hidden lg:p-0">
               {cardListFood2.map((item, index) => {
                 return (
-                  <CardCalculating
-                    currentCard={currentCard}
-                    setCurrentCard={setCurrentCard}
-                    key={item.name}
-                    {...item}
-                    index={index}
-                  />
+                  <li className="my-10" key={index}>
+                    <button
+                      type="button"
+                      className={`flex h-80 w-64 flex-col items-center justify-between overflow-hidden rounded-xl border-2 bg-[#BCFADE] ${index === data.milk ? "border-red-500" : "  hover:scale-105"}`}
+                      onClick={() => setData({ ...data, milk: index })}
+                    >
+                      <img
+                        src={item.img}
+                        alt={item.alt}
+                        className="mt-10 w-40"
+                      />
+
+                      <div className="mx-10 mt-2 flex h-14 w-64 items-center justify-center rounded-xl bg-[#6af56f]">
+                        <p className="text-base font-semibold text-black/80">
+                          {item.name}
+                        </p>
+                      </div>
+                    </button>
+                  </li>
                 );
               })}
             </ul>

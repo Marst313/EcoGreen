@@ -12,6 +12,9 @@ import Solar from "../assets/images/sun.png";
 import Listrik from "../assets/images/lightning.png";
 import Gas from "../assets/images/fire.png";
 
+import Male from "../assets/images/male.png";
+import Female from "../assets/images/female.png";
+
 export const navLinks = [
   {
     name: "Beranda",
@@ -53,7 +56,7 @@ export const cardList = [
     alt: "gambar kereta",
   },
 ];
- 
+
 export const cardListFood = [
   {
     name: "Ayam",
@@ -107,5 +110,14 @@ export const cardListHouse = [
     alt: "gambar gas",
   },
 ];
- 
 
+export const genderList = [
+  {
+    name: "pria",
+    img: Male,
+  },
+  {
+    name: "perempuan",
+    img: Female,
+  },
+];

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { CardCalculating } from "../components/CardCalculating";
 import { cardList } from "../utils/constant";
 
-import CalculatingModal2 from "../components/CalculatingModalBio";
 import CalculatingModalTransport from "../components/CalculatingModalTransport";
 import CalculatingModalHouse from "../components/CalculatingModalHouse";
 import CalculatingModalFood from "../components/CalculatingModalFood";
@@ -12,21 +11,27 @@ const Calculating = () => {
   const [currentCard, setCurrentCard] = useState(0);
   const [openModal, setOpenModal] = useState(0);
   const [data, setData] = useState({
-    km: 0,
-    people: 0,
-    energyType: "solar",
-    energyMonth: 0,
-    waterMonth: 0,
+    //  Bio
+    age: 0, //umur user
+    gender: "pria", // jenis kelamin user
+    location: "", //lokasi user
 
-    age: 0,
-    gender: "pria",
+    // House
+    people: 0, // jumlah orang dirumah user
+    energyType: 0, // energy yang dipilih user 0:solar 1:listrik 2:gas
+    energyMonth: 0, // penggunaan energy /kwh
+    waterMonth: 0, // penggunaan air
 
     // Food
-    meat: "ayam",
-    timeMeat: "tidak pernah",
+    meat: 0, // daging yang dimakan 0:ayam 1:sapi 2:ikan
+    timeMeat: "tidak pernah", //seberapa sering makan daging
 
-    milk: "susu",
+    milk: 0, // susu yang diminum 0:susu 1:keju 2:yogurt
     timeMilk: "tidak pernah",
+
+    // tranposrt
+    transport: 0, // kendaraan yg digunakan 0:motor 1:pesawat 2:mobil 3:kereta
+    km: 0, //seberapa jauh berkendara
   });
 
   return (
@@ -40,7 +45,7 @@ const Calculating = () => {
       <h2 className="text-center font-bold text-[#729975] lg:text-start lg:text-2xl">
         Kendaraaan Apa Yang Sering Kamu Gunakan ?
       </h2>
-      <ul className="flex justify-center overflow-x-auto lg:w-full lg:justify-between">
+      <ul className="flex justify-center overflow-x-auto lg:w-full lg:justify-between lg:overflow-hidden">
         {cardList.map((item, index) => {
           return (
             <CardCalculating

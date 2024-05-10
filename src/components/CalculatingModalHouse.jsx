@@ -3,6 +3,8 @@ import { cardListHouse } from "../utils/constant";
 import { CardCalculating } from "./CardCalculating";
 import Lampu from "../assets/images/lamp.png";
 import Water from "../assets/images/water.png";
+import DropdownEvenNumbers from "./DropdownOrang";
+import jumlahOrangImg from "../assets/images/jumlahOrang.png";
 
 const CalculatingModalHouse = ({
   openModal,
@@ -26,7 +28,7 @@ const CalculatingModalHouse = ({
       </h1>
 
       {/* close button */}
-      <div className=" flex h-3/4 w-full max-w-screen-xl justify-between gap-5 rounded-lg ">
+      <div className=" flex h-3/4 w-fit max-w-screen-xl justify-between gap-5 rounded-lg ">
         <button
           className="absolute right-5 top-5"
           type="button"
@@ -75,63 +77,95 @@ const CalculatingModalHouse = ({
 
           <div className="mt-5">
             <h2 className="text-2xl font-bold">Jumlah Orang di Rumah</h2>
+
+            <div className="my-5 flex items-center gap-5">
+              <img src={jumlahOrangImg} alt="orang" />
+              <DropdownEvenNumbers data={data} setData={setData} />
+            </div>
           </div>
 
           <div>
             <h2 className="text-2xl font-bold">
               Sumber Energi yang di Gunakan
             </h2>
-            <ul className="flex w-full justify-center gap-12 overflow-x-auto pl-96 lg:justify-between lg:p-0">
+            <ul className="flex w-full justify-center gap-12 overflow-x-auto pl-96 lg:justify-center lg:overflow-x-hidden lg:p-0">
               {cardListHouse.map((item, index) => {
                 return (
-                  <CardCalculating
-                    currentCard={currentCard}
-                    setCurrentCard={setCurrentCard}
-                    key={item.name}
-                    {...item}
-                    index={index}
-                  />
+                  <li className="my-10" key={index}>
+                    <button
+                      type="button"
+                      className={`flex h-80 w-64 flex-col items-center justify-between overflow-hidden rounded-xl border-2 bg-[#BCFADE] ${index === data.energyType ? "border-red-500" : "  hover:scale-105"}`}
+                      onClick={() => setData({ ...data, energyType: index })}
+                    >
+                      <img
+                        src={item.img}
+                        alt={item.alt}
+                        className="mt-10 w-40"
+                      />
+
+                      <div className="mx-10 mt-2 flex h-14 w-64 items-center justify-center rounded-xl bg-[#6af56f]">
+                        <p className="text-base font-semibold text-black/80">
+                          {item.name}
+                        </p>
+                      </div>
+                    </button>
+                  </li>
                 );
               })}
             </ul>
           </div>
 
-          <div className="mt-10 flex  justify-center w-full items-center gap-5 ">
+          <div className="relative mt-10  flex w-full items-center justify-center  gap-5">
             <img src={Lampu} alt="Image Orang" className="w-14" />
-            <label htmlFor="" className="font-bold">
+            <label htmlFor="range-energy" className="font-bold">
               0 Kwh
             </label>
             <input
               type="range"
               min="0"
-              max="100"
+              max="3000"
               step="1"
+              id="range-energy"
               className="h-2 w-1/2 appearance-none rounded-lg bg-[#65A2FD]"
-              value={""}
-              onChange={""}
+              value={data.energyMonth}
+              onChange={(e) =>
+                setData({ ...data, energyMonth: e.target.value })
+              }
             />
-            <label htmlFor="" className="font-bold">
+            <label htmlFor="range-energy" className="font-bold">
               2K+ Kwh
             </label>
+
+            <input
+              type="number"
+              className="absolute -top-5 right-24 w-20 font-bold"
+              value={data.energyMonth}
+            />
           </div>
 
-          <div className="mt-10 flex  justify-center w-full items-center gap-5 ">
+          <div className="relative mt-10  flex w-full items-center justify-center  gap-5">
             <img src={Water} alt="Image Orang" className="w-14" />
-            <label htmlFor="" className="font-bold">
+            <label htmlFor="water-energy" className="font-bold">
               0
             </label>
             <input
               type="range"
               min="0"
-              max="100"
+              max="3000"
               step="1"
               className="h-2 w-2/4 appearance-none rounded-lg bg-[#65A2FD]"
-              value={""}
-              onChange={""}
+              value={data.waterMonth}
+              onChange={(e) => setData({ ...data, waterMonth: e.target.value })}
             />
-            <label htmlFor="" className="font-bold">
+            <label htmlFor="water-month" className="font-bold">
               2K+
             </label>
+
+            <input
+              type="number"
+              className="absolute -top-5 right-24 w-20 font-bold"
+              value={data.waterMonth}
+            />
           </div>
 
           <button

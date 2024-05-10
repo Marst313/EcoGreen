@@ -12,8 +12,10 @@ const CalculatingModalTransport = ({
   data,
   setData,
 }) => {
-  const handleNext = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
+
+    console.log(data);
   };
 
   const handleOnChange = (e) => {
@@ -70,20 +72,31 @@ const CalculatingModalTransport = ({
           </svg>
         </button>
 
-        <div className="flex w-full flex-col items-center rounded-lg border-2 border-black/30 bg-white p-5 ">
+        <form
+          onSubmit={handleSubmit}
+          className="flex w-full flex-col items-center rounded-lg border-2 border-black/30 bg-white p-5 "
+        >
           <h1 className="text-3xl font-semibold text-secondaryGreen">
             Kendaraan
           </h1>
-          <ul className="flex w-full justify-center gap-12 overflow-x-auto pl-96 lg:justify-between lg:p-0">
+          <ul className="flex w-full justify-center gap-12 overflow-x-auto pl-96 lg:justify-between lg:p-0 xl:overflow-hidden">
             {cardList.map((item, index) => {
               return (
-                <CardCalculating
-                  currentCard={currentCard}
-                  setCurrentCard={setCurrentCard}
-                  key={item.name}
-                  {...item}
-                  index={index}
-                />
+                <li className="my-10" key={index}>
+                  <button
+                    type="button"
+                    className={`flex h-80 w-64 flex-col items-center justify-between overflow-hidden rounded-xl border-2 bg-[#BCFADE] ${index === data.transport ? "border-red-500" : "  hover:scale-105"}`}
+                    onClick={() => setData({ ...data, transport: index })}
+                  >
+                    <img src={item.img} alt={item.alt} className="mt-10 w-40" />
+
+                    <div className="mx-10 mt-2 flex h-14 w-64 items-center justify-center rounded-xl bg-[#6af56f]">
+                      <p className="text-base font-semibold text-black/80">
+                        {item.name}
+                      </p>
+                    </div>
+                  </button>
+                </li>
               );
             })}
           </ul>
@@ -117,11 +130,11 @@ const CalculatingModalTransport = ({
           </div>
           <button
             type="submit"
-            className="bg-fourthGreen hover:bg-fourthGreen/70 mt-5 w-full rounded-lg py-3 text-white hover:text-white/80"
+            className="mt-5 w-full rounded-lg bg-fourthGreen py-3 text-white hover:bg-fourthGreen/70 hover:text-white/80"
           >
             Simpan
           </button>
-        </div>
+        </form>
       </div>
     </div>
   );

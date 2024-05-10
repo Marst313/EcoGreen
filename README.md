@@ -1,8 +1,13 @@
-# React + Vite
+# Readme berisikan Nama Tim, Nama Anggota, dan Brief
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Explanation mengenai produk yang dibawakan
 
-Currently, two official plugins are available:
+- Anggota Tim
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. I Nyoman Karma Dharma Nalendra Wardana
+2. I Nyoman Karma Dharma Nalendra Wardana
+3. I Nyoman Karma Dharma Nalendra Wardana
+
+# URL
+
+<a href="https://ecogreenn.netlify.app/">https://ecogreenn.netlify.app/ </a>

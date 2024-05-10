@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import human from "../assets/images/bio.png";
+import { genderList } from "../utils/constant";
+import DropdownKabupaten from "./DropdownKabupaten";
 
 const CalculatingModalBio = ({ openModal, setOpenModal, setData, data }) => {
   const handleOnClick = (e) => {
@@ -6,7 +9,13 @@ const CalculatingModalBio = ({ openModal, setOpenModal, setData, data }) => {
     setOpenModal(2);
   };
 
-  console.log(openModal);
+  const handleOnChangeAge = (e) => {
+    setData({ ...data, age: e.target.value });
+  };
+
+  const handleChangeGender = (gender) => {
+    setData({ ...data, gender });
+  };
 
   return (
     <div
@@ -17,7 +26,7 @@ const CalculatingModalBio = ({ openModal, setOpenModal, setData, data }) => {
       </h1>
 
       {/* close button */}
-      <div className=" flex h-3/4 w-full max-w-screen-xl justify-between gap-5 rounded-lg ">
+      <div className=" flex h-3/4 w-full max-w-screen-xl justify-center gap-5 rounded-lg ">
         <button
           className="absolute right-5 top-5"
           type="button"
@@ -59,13 +68,78 @@ const CalculatingModalBio = ({ openModal, setOpenModal, setData, data }) => {
           </svg>
         </button>
 
-        <div className="flex w-full flex-col items-center rounded-lg border-2 border-black/30 bg-white p-5 ">
+        <div className="flex w-1/2 flex-col items-center gap-5 rounded-lg border-2 border-black/30 bg-white p-5 ">
           <h1 className="text-3xl font-semibold text-secondaryGreen">Bio</h1>
+
+          <div className="t mt-5  flex w-full items-start justify-center gap-5 self-start">
+            <img
+              src={human}
+              alt="human png"
+              className=" h-14 w-14 rounded-full bg-[#888F85] p-2"
+            />
+            <div className="w-1/2 ">
+              <label
+                htmlFor="default-range"
+                className="text-md mb-2 block font-bold text-gray-900 "
+              >
+                Age
+              </label>
+              <input
+                id="default-range"
+                type="range"
+                defaultValue={0}
+                min={0}
+                value={data.age}
+                onChange={handleOnChangeAge}
+                className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-[#B2D0FE] "
+              />
+            </div>
+
+            <input
+              type="number"
+              value={data.age}
+              onChange={handleOnChangeAge}
+              className="w-20"
+            />
+          </div>
+
+          <div>
+            <h2 className=" self-start font-medium">Jenis Kelamin</h2>
+
+            <ul className="mt-5 flex gap-10">
+              {genderList.map((gender) => {
+                return (
+                  <li
+                    key={gender.name}
+                    className="flex cursor-pointer flex-col items-center gap-1"
+                    onClick={() => handleChangeGender(gender.name)}
+                  >
+                    <div
+                      className={`flex h-40 w-40 items-center justify-center rounded-[3rem] border-2 bg-[#BCFADE]  p-5 ${gender.name === data.gender ? "border-red-500" : ""}`}
+                    >
+                      <img src={gender.img} alt={gender.name} />
+                    </div>
+
+                    <button
+                      className={`w-24 rounded-lg bg-fourthGreen px-2.5 py-2 capitalize text-white  ${gender.name === data.gender ? "" : "hover:bg-fourthGreen/80"}`}
+                    >
+                      {gender.name}
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+
+          <div>
+            <h1>Pilih Kabupaten di Indonesia</h1>
+            <DropdownKabupaten setData={setData} data={data} />
+          </div>
 
           <button
             type="button"
             onClick={handleOnClick}
-            className="bg-fourthGreen hover:bg-fourthGreen/70 mt-5 w-full rounded-lg py-3 text-white hover:text-white/80"
+            className="mt-5 w-full  rounded-lg bg-fourthGreen py-3 text-white hover:bg-fourthGreen/70 hover:text-white/80"
           >
             Next
           </button>
