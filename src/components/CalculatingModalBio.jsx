@@ -19,7 +19,7 @@ const CalculatingModalBio = ({ openModal, setOpenModal, setData, data }) => {
 
   return (
     <div
-      className={`fixed left-0 top-0 z-[9999] flex h-full w-full  flex-col items-center   justify-center gap-8 bg-white/10 px-5 backdrop-blur-md transition-all duration-500  ${openModal === 1 ? "-translate-x-0" : "-translate-x-full"} `}
+      className={`fixed left-0 top-0 z-[9999] flex h-full w-full flex-col items-center   justify-center gap-8 bg-white/10 px-5 backdrop-blur-md transition-all duration-500  ${openModal === 1 ? "-translate-x-0" : "translate-x-full"} `}
     >
       <h1 className="mx-auto  w-full max-w-screen-xl self-start justify-self-start text-4xl font-bold text-secondaryGreen">
         Menghitung Karbon
@@ -68,7 +68,7 @@ const CalculatingModalBio = ({ openModal, setOpenModal, setData, data }) => {
           </svg>
         </button>
 
-        <div className="flex w-1/2 flex-col items-center gap-5 rounded-lg border-2 border-black/30 bg-white p-5 ">
+        <div className="flex lg:w-1/2 flex-col items-center gap-5 overflow-scroll rounded-lg border-2 border-black/30 bg-white p-5 ">
           <h1 className="text-3xl font-semibold text-secondaryGreen">Bio</h1>
 
           <div className="t mt-5  flex w-full items-start justify-center gap-5 self-start">
@@ -103,8 +103,8 @@ const CalculatingModalBio = ({ openModal, setOpenModal, setData, data }) => {
             />
           </div>
 
-          <div>
-            <h2 className=" self-start font-medium">Jenis Kelamin</h2>
+          <div className="mt-3" >
+            <h2 className="self-start text-center font-bold text-xl ">Jenis Kelamin</h2>
 
             <ul className="mt-5 flex gap-10">
               {genderList.map((gender) => {
@@ -131,7 +131,7 @@ const CalculatingModalBio = ({ openModal, setOpenModal, setData, data }) => {
             </ul>
           </div>
 
-          <div>
+          <div className="mt-3">
             <h1>Pilih Provinsi di Indonesia</h1>
             <DropdownKabupaten setData={setData} data={data} />
           </div>

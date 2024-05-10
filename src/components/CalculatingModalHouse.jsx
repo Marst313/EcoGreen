@@ -19,9 +19,14 @@ const CalculatingModalHouse = ({
     setOpenModal(3);
   };
 
+  const handleOnClick2 = (e) => {
+    e.preventDefault();
+    setOpenModal(1);
+  };
+
   return (
     <div
-      className={`fixed left-0 top-0 z-[9999] flex h-full w-full  flex-col items-center   justify-center gap-8 bg-white/10 px-5 backdrop-blur-md transition-all duration-500  ${openModal === 2 ? "translate-x-0" : "translate-x-full"} `}
+      className={`fixed left-0 top-0 z-[9999] flex h-full w-full  flex-col items-center   justify-center gap-8 bg-white/10 px-5 backdrop-blur-md transition-all duration-500  ${openModal === 2 ? "translate-x-0" : "translate-x-[300%]"} `}
     >
       <h1 className="mx-auto  w-full max-w-screen-xl self-start justify-self-start text-4xl font-bold text-secondaryGreen">
         Menghitung Karbon
@@ -70,7 +75,7 @@ const CalculatingModalHouse = ({
           </svg>
         </button>
 
-        <div className="flex w-full flex-col overflow-scroll rounded-lg border-2 border-black/30 bg-white p-5 ">
+        <div className="flex w-[30rem] flex-col overflow-scroll rounded-lg border-2 border-black/30 bg-white p-5 lg:w-full ">
           <h1 className="text-center text-3xl font-semibold text-secondaryGreen">
             Rumah Tangga
           </h1>
@@ -146,9 +151,9 @@ const CalculatingModalHouse = ({
           </div>
 
           <div className="relative mt-10  flex w-full items-center justify-center  gap-5">
-            <img src={Water} alt="Image Orang" className="w-14" />
+            <img src={Water} alt="Image Orang" className="w-10" />
             <label htmlFor="water-energy" className="font-bold">
-              0
+              0 Liter
             </label>
             <input
               type="range"
@@ -160,7 +165,7 @@ const CalculatingModalHouse = ({
               onChange={(e) => setData({ ...data, waterMonth: e.target.value })}
             />
             <label htmlFor="water-month" className="font-bold">
-              2K+
+              2K+ Liter
             </label>
 
             <input
@@ -170,13 +175,22 @@ const CalculatingModalHouse = ({
             />
           </div>
 
-          <button
-            type="button"
-            onClick={handleOnClick}
-            className="mt-5 w-full rounded-lg bg-fourthGreen py-3 text-white hover:bg-fourthGreen/70 hover:text-white/80"
-          >
-            Next
-          </button>
+          <div className="flex">
+            <button
+              type="button"
+              onClick={handleOnClick2}
+              className="mr-2 mt-5 w-full rounded-lg bg-fourthGreen py-3 text-white hover:bg-fourthGreen/70 hover:text-white/80"
+            >
+              Kembali
+            </button>
+            <button
+              type="button"
+              onClick={handleOnClick}
+              className="mt-5 w-full rounded-lg bg-fourthGreen py-3 text-white hover:bg-fourthGreen/70 hover:text-white/80"
+            >
+              Lanjut
+            </button>
+          </div>
         </div>
       </div>
     </div>

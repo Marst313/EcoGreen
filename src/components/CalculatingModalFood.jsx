@@ -9,9 +9,14 @@ const CalculatingModalFood = ({ openModal, setOpenModal, setData, data }) => {
     setOpenModal(4);
   };
 
+  const handleOnClick2 = (e) => {
+    e.preventDefault();
+    setOpenModal(2);
+  };
+
   return (
     <div
-      className={`fixed left-0 top-0 z-[9999] flex h-full w-full  flex-col items-center   justify-center gap-8 bg-white/10 px-5 backdrop-blur-md transition-all duration-500  ${openModal === 3 ? "-translate-x-0" : "-translate-x-full"} `}
+      className={`fixed left-0 top-0 z-[9999] flex h-full w-full  flex-col items-center  justify-center gap-8 bg-white/10 px-5 backdrop-blur-md transition-all duration-500  ${openModal === 3 ? "-translate-x-0" : "translate-x-[300%]"} `}
     >
       <h1 className="mx-auto  w-full max-w-screen-xl self-start justify-self-start text-4xl font-bold text-secondaryGreen">
         Menghitung Karbon
@@ -60,7 +65,7 @@ const CalculatingModalFood = ({ openModal, setOpenModal, setData, data }) => {
           </svg>
         </button>
 
-        <div className="flex w-full flex-col overflow-scroll rounded-lg border-2 border-black/30 bg-white p-5 ">
+        <div className="flex w-[30rem] flex-col overflow-scroll rounded-lg border-2 border-black/30 bg-white p-5 lg:w-full ">
           <h1 className="text-center text-3xl font-semibold text-secondaryGreen">
             Makanan
           </h1>
@@ -69,9 +74,6 @@ const CalculatingModalFood = ({ openModal, setOpenModal, setData, data }) => {
             <div className="rounded-full bg-[#888F86] p-4">
               <img src={Ayam} alt="Image Orang" className="w-14" />
             </div>
-            <label htmlFor="" className="font-bold">
-              0 / Kg
-            </label>
             <input
               type="range"
               min="0"
@@ -82,7 +84,7 @@ const CalculatingModalFood = ({ openModal, setOpenModal, setData, data }) => {
               onChange={(e) => setData({ ...data, timeMeat: e.target.value })}
             />
             <label htmlFor="" className="font-bold">
-              {data.timeMeat} / KG
+              {data.timeMeat} / Kg
             </label>
           </div>
 
@@ -119,9 +121,6 @@ const CalculatingModalFood = ({ openModal, setOpenModal, setData, data }) => {
             <div className="rounded-full bg-[#888F86] p-4">
               <img src={Susu} alt="Image Orang" className="w-14" />
             </div>
-            <label htmlFor="milk-range" className="font-bold">
-              Tidak Pernah
-            </label>
             <input
               type="range"
               min="0"
@@ -168,13 +167,22 @@ const CalculatingModalFood = ({ openModal, setOpenModal, setData, data }) => {
             </ul>
           </div>
 
-          <button
-            type="button"
-            onClick={handleOnClick}
-            className="mt-5 w-full rounded-lg bg-fourthGreen py-3 text-white hover:bg-fourthGreen/70 hover:text-white/80"
-          >
-            Next
-          </button>
+          <div className="flex">
+            <button
+              type="button"
+              onClick={handleOnClick2}
+              className="mt-5 w-full mr-2 rounded-lg bg-fourthGreen py-3 text-white hover:bg-fourthGreen/70 hover:text-white/80"
+            >
+              Kembali
+            </button>
+            <button
+              type="button"
+              onClick={handleOnClick}
+              className="mt-5 w-full rounded-lg bg-fourthGreen py-3 text-white hover:bg-fourthGreen/70 hover:text-white/80"
+            >
+              Lanjut
+            </button>
+          </div>
         </div>
       </div>
     </div>

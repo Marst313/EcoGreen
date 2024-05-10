@@ -22,13 +22,18 @@ const CalculatingModalTransport = ({
     setOpenModal(5);
   };
 
+  const handleOnClick2 = (e) => {
+    e.preventDefault();
+    setOpenModal(3);
+  };
+
   const handleOnChange = (e) => {
     setData({ ...data, km: e.target.value });
   };
 
   return (
     <div
-      className={`fixed left-0 top-0 z-[9999] flex h-full w-full  flex-col items-center   justify-center gap-8 bg-white/10 px-5 backdrop-blur-md transition-all duration-500  ${openModal === 4 ? "translate-x-0" : "translate-x-full"} `}
+      className={`fixed left-0 top-0 z-[9999] flex h-full w-full flex-col items-center justify-center gap-8 bg-white/10 px-5 backdrop-blur-md transition-all duration-500 ${openModal === 4 ? "translate-x-0" : "translate-x-full"} `}
     >
       <h1 className="mx-auto  w-full max-w-screen-xl self-start justify-self-start text-4xl font-bold text-secondaryGreen">
         Menghitung Karbon
@@ -76,69 +81,84 @@ const CalculatingModalTransport = ({
           </svg>
         </button>
 
-        <form
-          onSubmit={handleSubmit}
-          className="flex w-full flex-col items-center rounded-lg border-2 border-black/30 bg-white p-5 "
-        >
-          <h1 className="text-3xl font-semibold text-secondaryGreen">
-            Kendaraan
-          </h1>
-          <ul className="flex w-full justify-center gap-12 overflow-x-auto pl-96 lg:justify-between lg:p-0 xl:overflow-hidden">
-            {cardList.map((item, index) => {
-              return (
-                <li className="my-10" key={index}>
-                  <button
-                    type="button"
-                    className={`flex h-80 w-64 flex-col items-center justify-between overflow-hidden rounded-xl border-2 bg-[#BCFADE] ${item.name === data.transport ? "border-red-500" : "  hover:scale-105"}`}
-                    onClick={() => setData({ ...data, transport: item.name })}
-                  >
-                    <img src={item.img} alt={item.alt} className="mt-10 w-40" />
-
-                    <div className="mx-10 mt-2 flex h-14 w-64 items-center justify-center rounded-xl bg-[#6af56f]">
-                      <p className="text-base font-semibold text-black/80">
-                        {item.name}
-                      </p>
-                    </div>
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
-          <div className="mt-10 flex  w-full items-center justify-center gap-5 ">
-            <img src={Orang} alt="Image Orang" className="w-14" />
-            <label htmlFor="">0 Km</label>
-            <input
-              type="range"
-              min="0"
-              max="100"
-              step="1"
-              className="h-2 w-3/4 appearance-none rounded-lg bg-[#65A2FD]"
-              value={data.km}
-              onChange={handleOnChange}
-            />
-            <label htmlFor="">100 Km</label>
-
-            <img src={Pesawat2} alt="Image Pesawat" className="w-20" />
-          </div>
-          <div className="mt-5 flex w-full justify-center gap-2">
-            <input
-              type="text"
-              placeholder="/Km"
-              id="KM"
-              max={100}
-              className="w-14 appearance-none rounded-lg text-center outline-none focus:outline-none focus:ring-2 focus:ring-blue-500"
-              value={data.km}
-              onChange={handleOnChange}
-            />
-            <label htmlFor="KM">/ KM</label>
-          </div>
-          <button
-            type="submit"
-            className="mt-5 w-full rounded-lg bg-fourthGreen py-3 text-white hover:bg-fourthGreen/70 hover:text-white/80"
+        <div className="overflow-scroll">
+          <form
+            onSubmit={handleSubmit}
+            className="flex w-full flex-col items-center rounded-lg border-2 border-black/30 bg-white p-5 "
           >
-            Simpan
-          </button>
-        </form>
+            <h1 className="text-3xl font-semibold text-secondaryGreen">
+              Kendaraan
+            </h1>
+            <ul className="flex w-full justify-center gap-12 overflow-x-auto pl-[30rem] lg:justify-between lg:p-0 xl:overflow-hidden">
+              {cardList.map((item, index) => {
+                return (
+                  <li className="my-10" key={index}>
+                    <button
+                      type="button"
+                      className={`flex h-80 w-64 flex-col items-center justify-between overflow-hidden rounded-xl border-2 bg-[#BCFADE] ${item.name === data.transport ? "border-red-500" : "  hover:scale-105"}`}
+                      onClick={() => setData({ ...data, transport: item.name })}
+                    >
+                      <img
+                        src={item.img}
+                        alt={item.alt}
+                        className="mt-10 w-40"
+                      />
+
+                      <div className="mx-10 mt-2 flex h-14 w-64 items-center justify-center rounded-xl bg-[#6af56f]">
+                        <p className="text-base font-semibold text-black/80">
+                          {item.name}
+                        </p>
+                      </div>
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+            <div className="mt-10 flex  w-full items-center justify-center gap-5 ">
+              <img src={Orang} alt="Image Orang" className="w-14" />
+              <label htmlFor="">0 Km</label>
+              <input
+                type="range"
+                min="0"
+                max="100"
+                step="1"
+                className="h-2 w-3/4 appearance-none rounded-lg bg-[#65A2FD]"
+                value={data.km}
+                onChange={handleOnChange}
+              />
+              <label htmlFor="">100 Km</label>
+
+              <img src={Pesawat2} alt="Image Pesawat" className="w-20" />
+            </div>
+            <div className="mt-5 flex w-full justify-center gap-2">
+              <input
+                type="text"
+                placeholder="/Km"
+                id="KM"
+                max={100}
+                className="w-14 appearance-none rounded-lg text-center outline-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+                value={data.km}
+                onChange={handleOnChange}
+              />
+              <label htmlFor="KM">/ KM</label>
+            </div>
+            <div className="flex w-full">
+              <button
+                type="button"
+                onClick={handleOnClick2}
+                className="mr-2 mt-5 w-full rounded-lg bg-fourthGreen py-3 text-white hover:bg-fourthGreen/70 hover:text-white/80"
+              >
+                Kembali
+              </button>
+              <button
+                type="submit"
+                className="mt-5 w-full rounded-lg bg-fourthGreen py-3 text-white hover:bg-fourthGreen/70 hover:text-white/80"
+              >
+                Simpan
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );
