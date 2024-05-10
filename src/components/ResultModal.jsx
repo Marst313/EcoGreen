@@ -4,9 +4,9 @@ import {
   getEmissionStatus,
 } from "../utils/function";
 
-import ayam from "../assets/images/ayam.png";
-import sapi from "../assets/images/bio.png";
-import ikan from "../assets/images/Daging.png";
+import Danger from "../assets/images/warning.png";
+import Aman from "../assets/images/aman.png";
+import Normal from "../assets/images/normal.png";
 const ResultModal = ({
   openModal,
   setOpenModal,
@@ -18,7 +18,7 @@ const ResultModal = ({
   setHasilEmisi,
 }) => {
   const [status, setStatus] = useState("");
-  const [file, setFile] = useState(ayam);
+  const [file, setFile] = useState("");
 
   const recommendations = getCarbonReductionRecommendations(data);
 
@@ -28,11 +28,11 @@ const ResultModal = ({
     setStatus(resultStatus);
 
     if (resultStatus === "Bahaya") {
-      setFile(ayam);
+      setFile(Danger);
     } else if (resultStatus === "Aman") {
-      setFile(sapi);
+      setFile(Aman);
     } else if (resultStatus === "Normal") {
-      setFile(ikan);
+      setFile(Normal);
     }
   }, [hasilEmisi]);
 
@@ -40,7 +40,7 @@ const ResultModal = ({
     <div
       className={`fixed left-0 top-0 z-[9999] flex h-full w-full  flex-col items-center   justify-center gap-8 bg-white/10 px-5 backdrop-blur-md transition-all duration-500  ${openModal === 5 ? "translate-x-0" : "translate-x-full"} `}
     >
-      <h1 className="mx-auto  w-fit max-w-screen-xl self-start justify-self-start text-4xl font-bold text-secondaryGreen">
+      <h1 className="mx-auto mt-5  w-fit max-w-screen-xl self-start justify-self-start text-4xl font-bold text-secondaryGreen">
         Emisi Karbon Yang Kamu Lakukan
       </h1>
       {/* close button */}
@@ -84,18 +84,26 @@ const ResultModal = ({
           </g>
         </svg>
       </button>
-      <h1>{status}</h1>
 
-      <img src={file} alt="" className="h-5 w-5" />
-
-      <p>{data.gender}</p>
-      <p>{data.age}</p>
-
-      {recommendations.map((item, index) => {
-        return <h1 key={index}>{item}</h1>;
-      })}
-
-      <h5>Hasil Emisi Kamu adalah {hasilEmisi}</h5>
+      <div className="e-card">
+        <div className="flex flex-col items-center justify-center">
+          <h1 className="mt-3 text-3xl font-bold">{status}</h1>
+          <img src={file} alt="" className="my-10 h-36 w-36" />
+        </div>
+        <h5 className="text-center text-xl font-bold text-[#729975]">
+          Hasil Total Emisi Kamu Adalah {hasilEmisi}
+        </h5>
+        <div className="mx-2 mt-5 text-justify">
+          <h2 className="p-2 text-xl font-bold">Tips</h2>
+          {recommendations.map((item, index) => {
+            return (
+              <li key={index} className="p-2">
+                {item}
+              </li>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 };
